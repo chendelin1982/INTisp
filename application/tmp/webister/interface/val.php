@@ -9,7 +9,7 @@
  */
 
 session_start();
-include 'config.php';
+require 'config.php';
 $con = mysqli_connect("$host", "$user", "$pass", 'webister');
 
 $email = mysqli_real_escape_string($con, $_POST['user']);
@@ -30,8 +30,8 @@ if ($check_user > 0) {
 } else {
     include 'config.php';
 
-// Create connection
-$conn = new mysqli('localhost', 'root', "$pass", 'webister');
+    // Create connection
+    $conn = new mysqli('localhost', 'root', "$pass", 'webister');
 
     $t = time();
     $sql = "INSERT INTO FailedLogin(id, ip, time)

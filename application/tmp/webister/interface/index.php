@@ -5,10 +5,10 @@
  *
  * Validate all installation settings and connection to mysql
  *
- * @category   Important
+ * @category Important
  *
- * @author     Tecflare
- * @copyright  2016 Tecflare
+ * @author    Tecflare
+ * @copyright 2016 Tecflare
  */
 if (!isset($_GET['page'])) {
     header('Location: index.php?page=main');

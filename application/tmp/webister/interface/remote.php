@@ -9,7 +9,7 @@
  */
 
 session_start();
-include 'config.php';
+require 'config.php';
 $username = $_GET['username'];
 $password = $_GET['password'];
 if (!isset($_GET['username']) || !isset($_GET['username'])) {
@@ -32,8 +32,8 @@ if ($check_user > 0) {
 } else {
     include 'config.php';
 
-// Create connection
-$conn = new mysqli('localhost', 'root', "$pass", 'webister');
+    // Create connection
+    $conn = new mysqli('localhost', 'root', "$pass", 'webister');
 
     $t = time();
     $sql = "INSERT INTO FailedLogin(id, ip, time)

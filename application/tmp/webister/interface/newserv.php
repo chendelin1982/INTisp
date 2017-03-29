@@ -32,21 +32,21 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password)."','0','".
     }
     newserv($_POST['pstart'], $_POST['disk'], $_POST['username'], $_POST['pend']);
 }
-include 'include/head.php';
+require 'include/head.php';
 
 ?>
-	<div class="content-wrapper">
-			<div class="container-fluid">
+    <div class="content-wrapper">
+            <div class="container-fluid">
 
-				<div class="row">
-					<div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
 
-						<h2 class="page-title">New Server</h2>
-						<p><?php if (isset($_GET['pa'])) {
-    echo ''.$_GET['pa'].'';
+                        <h2 class="page-title">New Server</h2>
+                        <p><?php if (isset($_GET['pa'])) {
+                            echo ''.$_GET['pa'].'';
 } ?></p>
-						<p>This could take a very long time. Once you create a user, please do not exit away from this page.</p>
-				<form method="POST" action="?yes">
+                        <p>This could take a very long time. Once you create a user, please do not exit away from this page.</p>
+                <form method="POST" action="?yes">
   <fieldset class="form-group">
     <label for="formGroupExampleInput">Username</label>
     <input type="text" class="form-control" name="username" id="formGroupExampleInput" placeholder="">
@@ -66,5 +66,5 @@ include 'include/head.php';
 <button type="submit" class="btn btn-primary">Add User</button>
 </form>			
 <?php
-include 'include/footer.php';
+require 'include/footer.php';
 ?>

@@ -8,7 +8,7 @@
  *
  */
 
-include 'config.php';
+require 'config.php';
  $port = rand(1000, 9999);
 mkdir('/var/webister/'.$port);
 $conn = mysqli_connect("$host", "$user", "$pass", 'webister');

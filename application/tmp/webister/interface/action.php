@@ -13,7 +13,7 @@ if (!isset($_SESSION['user'])) {
     header('Location: index.php?page=main');
     die();
 }
-include 'py-serv-client.php';
+require 'py-serv-client.php';
 if ($_GET['act'] == 'pwr') {
     sendmessage('pwr');
     header('Location: index.php?page=cp');

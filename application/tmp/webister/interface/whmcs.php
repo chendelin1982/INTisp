@@ -9,7 +9,7 @@
  */
 
 error_reporting(0);
-include 'config.php';
+require 'config.php';
 
 if ($_GET['val']) {
     $con = mysqli_connect("$host", "$user", "$pass", 'webister');

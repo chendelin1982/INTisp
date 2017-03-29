@@ -1,38 +1,40 @@
-<?php include 'include/head.php'; ?>
-	<div class="content-wrapper">
-			<div class="container-fluid">
+<?php require 'include/head.php'; ?>
+    <div class="content-wrapper">
+            <div class="container-fluid">
 
-				<div class="row">
-					<div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
 
-						<h2 class="page-title">Transactions</h2>
-												<table class="table">
+                        <h2 class="page-title">Transactions</h2>
+                                                <table class="table">
     <thead>
       <tr>
         <th>Username</th>
         <th>Date</th>
-		<th>Plan</th>
-		<th>Cost</th>
-		<th>Email</th>
+        <th>Plan</th>
+        <th>Cost</th>
+        <th>Email</th>
       </tr>
     </thead>
     <tbody>
-	<?php
+    <?php
     $dir = scandir('data/transactions');
     foreach ($dir as $file) {
         if ($file == '.' || $file == '..') {
+        
         } else {
             include 'data/transactions/'.$file; ?>
-			  <tr>
-        <td><?php echo $username; ?></td>
-        <td><?php echo $date; ?></td>
-		<td><?php echo $plan; ?></td>
-		<td><?php echo $cost; ?></td>
-		<td><?php echo $mail; ?></td>
-      </tr>
-			<?php
+                      <tr>
+                <td><?php echo $username; ?></td>
+                <td><?php echo $date; ?></td>
+                <td><?php echo $plan; ?></td>
+                <td><?php echo $cost; ?></td>
+                <td><?php echo $mail; ?></td>
+              </tr>
+            <?php
 
         }
+    
     }
     ?>
-<?php include 'include/footer.php'; ?>
+<?php require 'include/footer.php'; ?>
