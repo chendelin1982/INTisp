@@ -22,7 +22,7 @@ node {
    archive 'logtest.txt'
    archive 'logstyle.txt'
    archive 'md5.txt'
-   archive 'report.dff'
+   archive 'report.diff'
    
    stage 'clean'
    sh 'rm -rf *'
