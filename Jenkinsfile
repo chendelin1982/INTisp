@@ -22,7 +22,7 @@ node {
    sh 'rm -rf patch/DEBIAN/postinst'
    sh 'rm -rf patch/tmp/webister/interface/config.php'
    sh 'echo "cp -R /tmp/webister/interface/ /var/webister/" > patch/DEBIAN/postinst'
-   sh 'chmod -R 777 patch/DEBIAN/postinst'
+   sh 'chmod -R 666 patch/DEBIAN/postinst'
    sh 'dpkg-deb --build patch'
    
    stage 'archive'
