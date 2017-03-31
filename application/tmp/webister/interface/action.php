@@ -7,8 +7,15 @@
  *
  *
  */
-
-session_start();
+ session_start();
+ function onlyadmin () {
+     if ($_SESSION['user'] == 'admin') {
+         
+     } else {
+         die();
+     }
+}
+onlyadmin();
 if (!isset($_SESSION['user'])) {
     header('Location: index.php?page=main');
     die();

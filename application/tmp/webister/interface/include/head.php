@@ -2,6 +2,13 @@
 error_reporting(E_ALL);
 session_start();
 include 'config.php';
+function onlyadmin () {
+     if ($_SESSION['user'] == 'admin') {
+         
+     } else {
+         die();
+     }
+}
 if (!isset($_SESSION['user'])) {
     header('Location: index.php?page=main');
     die();
@@ -154,5 +161,14 @@ mysqli_close($con);
 
                 <div class="row">
                     <section class="col-lg-9">
-                       <a type="button" href="cp.php" class="btn btn-default"><i class="fa fa-5x fa-home"></i></a><br>
+                       <a type="button" href="cp.php" class="btn btn-default"><i class="fa fa-5x fa-home"></i></a>
+               
+                        <a type="button" href="FileManager.php" class="btn btn-default"><i class="fa fa-5x fa-file"></i></a>
+                                        <a type="button" href="adminer-4.2.4.php?server=localhost" class="btn btn-default"><i class="fa fa-5x fa-database"></i></a>
+                                        <a type="button" href="wp.php" class="btn btn-default"><i class="fa fa-5x fa-wordpress"></i></a>
+                                        <a type="button" href="phpinfo.php" class="btn btn-default"><i class="fa fa-5x fa-code"></i></a>
+                                        <a type="button" href="mobiapp.php" class="btn btn-default"><i class="fa fa-5x fa-mobile"></i></a>
+                       
+                   
+                       <hr>
                        

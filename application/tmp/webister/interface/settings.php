@@ -1,4 +1,4 @@
-<?php require 'include/head.php'; ?>
+<?php session_start(); require 'include/head.php';onlyadmin(); ?>
         <div class="content-wrapper">
             <div class="container-fluid">
 

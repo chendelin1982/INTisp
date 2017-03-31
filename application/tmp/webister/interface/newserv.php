@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_GET['yes'])) {
     function newserv($port, $disk, $username, $password)
     {
@@ -33,7 +34,7 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password)."','0','".
     newserv($_POST['pstart'], $_POST['disk'], $_POST['username'], $_POST['pend']);
 }
 require 'include/head.php';
-
+onlyadmin();
 ?>
     <div class="content-wrapper">
             <div class="container-fluid">
