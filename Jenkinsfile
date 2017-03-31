@@ -26,6 +26,7 @@ node {
    
    stage 'archive'
    archive 'application.deb'
+   archive 'patch.deb'
    archive 'logtest.txt'
    archive 'logstyle.txt'
    archive 'md5.txt'
