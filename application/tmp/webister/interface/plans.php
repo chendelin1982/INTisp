@@ -77,5 +77,5 @@
         }
     
     }
-    ?>
+    ?></tbody></table>
 <?php require 'include/footer.php'; ?>
