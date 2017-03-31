@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 include 'config.php';
 if (!isset($_SESSION['user'])) {
@@ -153,5 +154,5 @@ mysqli_close($con);
 
                 <div class="row">
                     <section class="col-lg-9">
-                       
+                       <a type="button" href="cp.php" class="btn btn-default"><i class="fa fa-5x fa-home"></i></a><br>
                        

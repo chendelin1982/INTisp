@@ -8,5 +8,6 @@
 #notes           :
 #bash_version    :4.1.5(1)-release
 #==============================================================================
-
+echo "This has been depreciated."
+exit 1;
   telnet localhost 10011

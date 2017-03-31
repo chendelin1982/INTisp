@@ -1,5 +1,5 @@
 Package: webister
-Version: 1.0-1
+Version: 5.0-1
 Section: base
 Depends: php5, php5-mysql, telnet, mysql-server, python
 Priority: optional
@@ -8,3 +8,4 @@ Maintainer: Thomas Wilbur <dodiaraculus@outlook.com>
 Description: Webister is a project that makes cloud computing
  easier, This software also comes with very small and light
  features of minimal servers.
+ 

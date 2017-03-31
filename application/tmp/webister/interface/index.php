@@ -7,8 +7,8 @@
  *
  * @category Important
  *
- * @author    Tecflare
- * @copyright 2016 Tecflare
+ * @author    Adaclare
+ * @copyright 2017 Adaclare
  */
 if (!isset($_GET['page'])) {
     header('Location: index.php?page=main');
