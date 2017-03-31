@@ -21,7 +21,7 @@ node {
    sh 'cp -R application patch'
    sh 'rm -rf patch/DEBIAN/postinst'
    sh 'rm -rf patch/tmp/webister/interface/config.php'
-   sh 'echo "cp -R /tmp/webister/interface/ /var/webister/interface" > application/DEBIAN/postinst'
+   sh 'echo "cp -R /tmp/webister/interface/ /var/webister/interface/" > application/DEBIAN/postinst'
    sh 'dpkg-deb --build patch'
    
    stage 'archive'
