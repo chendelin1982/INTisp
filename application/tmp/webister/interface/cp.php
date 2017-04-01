@@ -11,6 +11,7 @@
                                         <a type="button" href="index.php?page=list#" class="btn btn-default"><i class="fa fa-5x fa-user"></i><hr>Users</a>
                                         <a type="button" href="plans.php" class="btn btn-default"><i class="fa fa-5x fa-columns" aria-hidden="true"></i><hr>Plans</a>
                                         <a type="button" href="settings.php" class="btn btn-default"><i class="fa fa-5x fa-sliders"></i><hr>Settings</a>
+                                        <a type="button" href="terminal.php" class="btn btn-default"><i class="fa fa-5x fa-terminal"></i><hr>Terminal</a>
                                         <a type="button" href="update.php" class="btn btn-default"><i class="fa fa-5x fa-arrow-up"></i><hr>Update</a><hr>
             <?php 
 } ?>
