@@ -18,4 +18,5 @@ require 'config.php';
     file_put_contents('data/logo', $_POST['logos']);
     file_put_contents('data/loginhead', $_POST['loginh']);
     file_put_contents('data/loginfoot', $_POST['loginf']);
+    file_put_contents('data/theme', $_POST['theme']);
     header('Location: index.php?page=cp#');

@@ -81,12 +81,7 @@ else
 fi
 fqdn=""
 echo -e "Validation Complete"
-if python build.py; then
-   echo ""
-else
-    echo "Exit code of $?, failure!!"
-    exit 1
-fi
+
 echo "Checking for other web hosting control panels..."
 if [ -e /usr/local/cpanel ] || [ -e /usr/local/directadmin ] || [ -e /usr/local/solusvm/www ] || [ -e /usr/local/home/admispconfig ] || [ -e /usr/local/lxlabs/kloxo ] || [ -e /var/webister ]; then
     echo -e "It appears that a control panel is already installed on your server"
@@ -107,15 +102,11 @@ mysql -u root -p"$PASS" -e "CREATE DATABASE webister;" & spinner
 
 id -u webister &>/dev/null || useradd webister & spinner
 mkdir -p /var/webister & spinner
-sudo chmod +x interface/execute & spinner
 
 cp -r interface /var/webister/interface & spinner
 cp files/service /etc/init.d/webister & spinner
 cp files/grabpass.php /etc/init.d/grabpass.php & spinner
 chmod +x /etc/init.d/webister & spinner
-cp python/server.py /var/webister & spinner
-cp files/command /usr/bin/webister & spinner
-sudo chmod +x /usr/bin/webister & spinner
 service mysql start & spinner
 sudo adduser webister sudo & spinner
 usermod -aG sudo  webister & spinner

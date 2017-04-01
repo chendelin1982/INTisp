@@ -42,7 +42,7 @@ $result = mysqli_query($con, $sql);
  while ($row = mysqli_fetch_row($result)) {
      $quote = $row[4];
      if ($quote == '') {
-         $quote = '99999999999999999999999999999999';
+         $quote = '∞';
      }
  }
    mysqli_free_result($result);
@@ -61,16 +61,47 @@ $result = mysqli_query($con, $sql);
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            .loadText{
+    font-family: Arial;
+    color:#000;
+	font-size: 30px;
+}
+.preloader{
+    background-color:#FFF;
+    height: 100%;
+	padding-top: 60px;
+	margin-left: -20px;
+	margin-top: -20px;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+        </style>
+        <?php
+        $cp = basename($_SERVER["SCRIPT_FILENAME"], '.php');
+        if ($cp == "cp") {
+            ?>
+           <div class="preloader" id="preloader">
+    <img src="http://www.arabianbusiness.com/skins/ab.main/gfx/loading_spinner.gif" class="img-responsive center-block">
+	<p class="text-center loadText">Loading...</p>
+</div>
+<?php } ?>
                     <meta charset="UTF-8">
+                    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
             <title>Webister</title>
             <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
             <link rel="icon" href="https://www.kalzediahosting.com/assets/kh.png">
           
             <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+            <?php if (file_Get_contents("data/theme") == "default") { ?>
             <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\bootstrap.min.css">
-            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\admin.css">
+                 <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\admin.css">
             <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\custom.css">
 			            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\local.css">
+            <?php } ?>
+            
             <script src="cpanel\bootpanel\js\engine.js" type="text/javascript"></script>
      
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -78,8 +109,17 @@ $result = mysqli_query($con, $sql);
             <!--[if lt IE 9]>
               <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
               <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-            <![endif]-->    </head>
+            <![endif]-->   
+              <?php if (file_Get_contents("data/theme") == "modern") { ?>
+            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\modern.css">
+            <?php } ?>
+            <?php if (file_Get_contents("data/theme") == "dark") { ?>
+            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\dark.css">
+            <?php } ?>
+            </head>
     <body class="skin-blue dashboard">
+
+
    <div id="cpanel">
         <div id="border-efx">
         <!--Handheld heading-->

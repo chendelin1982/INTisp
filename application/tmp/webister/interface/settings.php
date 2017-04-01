@@ -34,7 +34,14 @@
   <fieldset class="form-group">
     <label for="formGroupExampleInput">Logo</label>
     <input type="text" class="form-control" name="logos" id="formGroupExampleInput" value="<?php echo file_get_contents('data/logo'); ?>">
-  </fieldset>
+  </fieldset><fieldset class="form-group">
+    <label for="sel1">Select theme (select one):</label>
+      <select class="form-control" name="theme" id="sel1">
+        <option>default</option>
+        <option>modern</option>
+        <option>dark</option>
+      </select>
+      </fieldset>
    <label for="formGroupExampleInput">Advertising</label><Br>
    <textarea style="width:500px;height:500px;" name="head"><?php echo file_get_contents('data/head'); ?></textarea><Br>
   </fieldset>

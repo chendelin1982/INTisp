@@ -20,24 +20,24 @@ if (!isset($_SESSION['user'])) {
     header('Location: index.php?page=main');
     die();
 }
-require 'py-serv-client.php';
+
 if ($_GET['act'] == 'pwr') {
-    sendmessage('pwr');
+    exec("sudo nohup service webister stop &>/dev/null &");
     header('Location: index.php?page=cp');
     die();
 }
 if ($_GET['act'] == 'restart') {
-    sendmessage('restart');
+    exec("sudo nohup service webister restart &>/dev/null &");
     header('Location: index.php?page=cp');
     die();
 }
 if ($_GET['act'] == 'mysql') {
-    sendmessage('mysql');
+    exec("sudo nohup service mysql restart &>/dev/null &");
     header('Location: index.php?page=cp');
     die();
 }
 if ($_GET['act'] == 'server') {
-    sendmessage('server');
+    exec("sudo nohup reboot &>/dev/null &");
     header('Location: index.php?page=cp');
     die();
 }
