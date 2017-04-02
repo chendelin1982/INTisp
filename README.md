@@ -1,6 +1,6 @@
 
 # webister
-webister is a python, php, c++, and more project.
+Webister is a hosting control panel that is designed to be light and fast. It uses only PHP and HTML with a few shell. Webister only takes 5 MB of space to run.
 
 [![Build Status](http://www.adaclare.com:8080/job/Webister%20Development/job/webister/job/master/badge/icon)](http://www.adaclare.com:8080/job/Webister%20Development/job/webister/job/master/)
 
@@ -25,7 +25,6 @@ Help support the project by [![Donate](https://img.shields.io/badge/Donate-PayPa
   - Light
   - Handmade
 
-Webister is a hosting control panel that is designed to be light and fast. It uses only PHP and HTML with a few shell. Webister only takes 5 MB of space to run.
 
 ## Installation
 
