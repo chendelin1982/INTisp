@@ -2,6 +2,8 @@
 # webister
 Webister is a hosting control panel that is designed to be light and fast. It uses only PHP and HTML with a few shell. Webister only takes 5 MB of space to run.
 
+ PHP 52.5%	 JavaScript 31.0%	 CSS 15.2%	 HTML 0.9%	 Shell 0.4%	 Python 0.0%
+
 [![Build Status](http://www.adaclare.com:8080/job/Webister%20Development/job/webister/job/master/badge/icon)](http://www.adaclare.com:8080/job/Webister%20Development/job/webister/job/master/)
 
 Report a bug [here](http://adaclare.com/errtrck/bug_report_page.php)
