@@ -1,5 +1,15 @@
 
 # webister
+
+ _    _        _      _       _              
+| |  | |      | |    (_)     | |             
+| |  | |  ___ | |__   _  ___ | |_  ___  _ __ 
+| |/\| | / _ \| '_ \ | |/ __|| __|/ _ \| '__|
+\  /\  /|  __/| |_) || |\__ \| |_|  __/| |   
+ \/  \/  \___||_.__/ |_||___/ \__|\___||_|   
+                                           
+
+
 Webister is a hosting control panel that is designed to be light and fast. It uses only PHP and HTML with a few shell. Webister only takes 5 MB of space to run.
 
  PHP 52.5%	 JavaScript 31.0%	 CSS 15.2%	 HTML 0.9%	 Shell 0.4%	 Python 0.0%
