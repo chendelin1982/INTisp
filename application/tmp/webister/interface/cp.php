@@ -28,6 +28,7 @@
                                   <a type="button" href="settings.php" class="btn btn-default"><i class="fa fa-5x fa-sliders"></i><hr>Settings</a>
                                         <a type="button" href="terminal.php" class="btn btn-default"><i class="fa fa-5x fa-terminal"></i><hr>Terminal</a>
                                         <a type="button" href="update.php" class="btn btn-default"><i class="fa fa-5x fa-arrow-up"></i><hr>Update</a>
+                                        <a type="button" href="http://adaclare.com/errtrck/bug_report_page.php" class="btn btn-default"><i class="fa fa-5x fa-life-ring"></i><hr>Bugs</a>
                                          </li>
   </ul>  
                                
