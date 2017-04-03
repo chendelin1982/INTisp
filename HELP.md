@@ -1,7 +1,7 @@
 If you would like to support us, please send this email out:
 
 
-# Hello Friend,
+# Hello [Friend Name Here],
 
 I am happy to announce the first release of our hosting control panel. We released a hosting control panel today called Webister, it is completely written in PHP. It does not use any other language except php, bash, and html.
 
@@ -25,6 +25,8 @@ You may donate at https://www.paypal.me/adaclare. The money will be used towards
 If you find bugs please visit (http://adaclare.com/errtrck/bug_report_page.php) and fill out the form.
 
 
-Thank You for your time,
+#### Thank You for your time,
 
-Adaclare Technologies
+ [Your Name Here]
+ 
+ Adaclare Technologies
