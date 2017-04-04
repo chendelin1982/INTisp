@@ -152,7 +152,10 @@ mysqli_close($con);
     </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-      <li><a href="" data-toggle="modal" data-target="#myModal">My Account</a></li>
+          <li><a href="cp.php"><i class="fa fa-1x fa-home"></i></a></li>
+         <li><a href="FileManager.php"><i class="fa fa-1x fa-file"></i></a></li>
+         <li><a href="adminer-4.2.4.php?server=localhost"><i class="fa fa-1x fa-database"></i></a></li>
+      <li><a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-1x fa-user"></i></a></li>
       <li><a href="logout.php">Log off</a></li>
             </ul>
     </div><!-- /.navbar-collapse -->
@@ -204,14 +207,8 @@ mysqli_close($con);
 
                 <div class="row">
                     <section class="col-lg-9">
-                       <a type="button" href="cp.php" class="btn btn-default"><i class="fa fa-5x fa-home"></i></a>
-               
-                        <a type="button" href="FileManager.php" class="btn btn-default"><i class="fa fa-5x fa-file"></i></a>
-                                        <a type="button" href="adminer-4.2.4.php?server=localhost" class="btn btn-default"><i class="fa fa-5x fa-database"></i></a>
-                                        <a type="button" href="wp.php" class="btn btn-default"><i class="fa fa-5x fa-wordpress"></i></a>
-                                        <a type="button" href="phpinfo.php" class="btn btn-default"><i class="fa fa-5x fa-code"></i></a>
-                                        <a type="button" href="mobiapp.php" class="btn btn-default"><i class="fa fa-5x fa-mobile"></i></a>
-                       
+        
+             
                    
                        <hr>
                        

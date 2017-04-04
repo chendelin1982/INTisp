@@ -43,8 +43,10 @@
                                         <a type="button" href="adminer-4.2.4.php?server=localhost" class="btn btn-default"><i class="fa fa-5x fa-database"></i><hr>Database</a>
                                         <a type="button" href="wp.php" class="btn btn-default"><i class="fa fa-5x fa-wordpress"></i><hr>Wordpress</a>
                                         <a type="button" href="phpinfo.php" class="btn btn-default"><i class="fa fa-5x fa-code"></i><hr>PHP Info</a>
-                                        <a type="button" href="mobiapp.php" class="btn btn-default"><i class="fa fa-5x fa-mobile"></i><hr>App</a>
-                                        
+                                        <a type="button" href="mobiapp.php" class="btn btn-default"><i class="fa fa-5x fa-mobile"></i><hr>Mobile App</a>
+                                          <a type="button" href="<?php echo file_get_contents("data/forum"); ?>" class="btn btn-default"><i class="fa fa-5x fa-file"></i><hr>Forum</a>
+                                        <a type="button" href="<?php echo file_get_contents("data/support"); ?>" class="btn btn-default"><i class="fa fa-5x fa-life-ring"></i><hr>Support</a>
+                                    
                                                          </li>
   </ul>  
                                
