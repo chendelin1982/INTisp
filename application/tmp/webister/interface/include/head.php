@@ -170,7 +170,7 @@ mysqli_close($con);
 				<?php
 			} else {
 			?>
-				<li><A><i class="fa fa-1x fa-lock"></i></A></li>
+				<li><A><i style="color:green" class="fa fa-1x fa-lock"></i></A></li>
 			<?php
 			}
 			?>
