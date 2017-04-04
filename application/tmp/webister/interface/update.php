@@ -1,6 +1,6 @@
 <?php session_start(); require 'include/head.php';onlyadmin();
 if (isset($_POST["fileToUpload"])) {
-file_put_contents("patch.deb",file_get_contents($_POST["fileToUpload"]));
+    file_put_contents("patch.deb", file_get_contents($_POST["fileToUpload"]));
        $out = exec("cd /var/webister/interface && dpkg -i patch.deb > log.log");
        echo $out;
 }

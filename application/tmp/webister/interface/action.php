@@ -8,12 +8,13 @@
  *
  */
  session_start();
- function onlyadmin () {
-     if ($_SESSION['user'] == 'admin') {
+function onlyadmin() 
+{
+    if ($_SESSION['user'] == 'admin') {
          
-     } else {
-         die();
-     }
+    } else {
+        die();
+    }
 }
 onlyadmin();
 if (!isset($_SESSION['user'])) {

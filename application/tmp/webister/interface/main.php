@@ -11,18 +11,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
     <meta charset="UTF-8">
-	<title>Login to Webister</title>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/custom.js"></script>
-	<script type="text/javascript" src="js/jquery-ui.js"></script>
+    <title>Login to Webister</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="css/grid12.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/login.css" media="all" />
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" media="all"/>
-	<link rel="stylesheet" type="text/css" href="css/animate.css" media="all"/>
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/login.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="css/animate.css" media="all"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-	 <!-- Styles -->
+     <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
@@ -82,7 +82,7 @@
                 margin-bottom: 30px;
             }
         </style>
-	
+    
 </head>
 <body>
 
@@ -145,7 +145,7 @@
             </div>
             
         </div>
-              <?php if (isset($_GET['error'])) {
+                <?php if (isset($_GET['error'])) {
     ?>
 <div style="position:fixed; top:10px; right:10px; padding:25px; background:#fff; border:1px solid #ddd;">
     Wrong username or password
@@ -153,7 +153,7 @@
 <?php 
 } ?>
 
-	
+    
 </body>
 </html>
 <?php echo file_get_contents('data/loginfoot'); ?>
