@@ -155,6 +155,25 @@ mysqli_close($con);
           <li><a href="cp.php"><i class="fa fa-1x fa-home"></i></a></li>
          <li><a href="FileManager.php"><i class="fa fa-1x fa-file"></i></a></li>
          <li><a href="adminer-4.2.4.php?server=localhost"><i class="fa fa-1x fa-database"></i></a></li>
+         <?php
+			  function isSSL()
+    {
+        if( !empty( $_SERVER['https'] ) )
+            return true;
+        if( !empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' )
+            return true;
+        return false;
+    }
+			if (!isSSL()) {
+				?>
+				<li><A><i style="color:red" class="fa fa-1x fa-unlock"></i></A></li>
+				<?php
+			} else {
+			?>
+				<li><A><i class="fa fa-1x fa-lock"></i></A></li>
+			<?php
+			}
+			?>
       <li><a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-1x fa-user"></i></a></li>
       <li><a href="logout.php">Log off</a></li>
             </ul>

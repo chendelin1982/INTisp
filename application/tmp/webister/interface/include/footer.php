@@ -11,7 +11,7 @@
         <table id="account-information">
           <ul>
           				<li class="ts-label">Status of Server</li>
-			 <li><a>Hostname: <span class="badge"><?php echo gethostname(); ?>:<?php
+			 <li>Hostname: <span class="badge"><?php echo gethostname(); ?>:<?php
 $con = mysqli_connect($host, $user, $pass, $data);
 $sql = 'SELECT * FROM Users WHERE username = "'.$_SESSION['user'].'"';
 $result = mysqli_query($con, $sql);
@@ -20,8 +20,8 @@ $result = mysqli_query($con, $sql);
  }
    mysqli_free_result($result);
     mysqli_close($con);
-    ?></span></a></li>
-			 <li><a>IP Address: <span class="badge"><?php echo gethostbyname(gethostname()); ?>:<?php
+    ?></span></li>
+			 <li>IP Address: <span class="badge"><?php echo gethostbyname(gethostname()); ?>:<?php
 $con = mysqli_connect($host, $user, $pass, $data);
 $sql = 'SELECT * FROM Users WHERE username = "'.$_SESSION['user'].'"';
 $result = mysqli_query($con, $sql);
@@ -31,14 +31,14 @@ $result = mysqli_query($con, $sql);
  }
    mysqli_free_result($result);
     mysqli_close($con);
-    ?></a></li>
+    ?></li>
     <li>MySQL Status: <i class="fa fa-check" aria-hidden="true"></i></li>
-			<li><a>MySQL Hostname: <span class="badge">localhost</span></a></li>
-   <li><a>MySQL Username: <span class="badge"><?php echo $_SESSION['user']; ?></span></a></li>
-   <li><a>MySQL Password: <span class="badge">Same as CP</span></a></li>
-   <li><a>Database: <span class="badge"><?php echo $_SESSION['user']; ?></span></a></li>
+			<li>MySQL Hostname: <span class="badge">localhost</span></li>
+   <li>MySQL Username: <span class="badge"><?php echo $_SESSION['user']; ?></span></li>
+   <li>MySQL Password: <span class="badge">Same as CP</span></li>
+   <li>Database: <span class="badge"><?php echo $_SESSION['user']; ?></span></li>
    <li>Webister Status: <i class="fa fa-check" aria-hidden="true"></i></li>
-   <li><a>Status: 
+   <li>Status: 
        <?php
 
 
@@ -47,8 +47,8 @@ $result = mysqli_query($con, $sql);
      } else {
          echo '<i class="fa fa-times" aria-hidden="true"></i>';
      }
-    ?> </a></li>
-    <li><a>	Disk Space (<?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>/<?php echo $quote; ?>):<div class="progress">
+    ?> </li>
+    <li>	Disk Space (<?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>/<?php echo $quote; ?>):<div class="progress">
   <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>"
   aria-valuemin="0" aria-valuemax="<?php 
   if ($quote == "∞") {echo "99999999999999999";} else {
@@ -57,7 +57,7 @@ $result = mysqli_query($con, $sql);
   ?>" style="width:<?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>%">
     <span class="sr-only"><?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>% Complete</span>
   </div>
-</div></a></li>
+</div></li>
           </ul>
           
           <table class="table table-hover">

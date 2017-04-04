@@ -3,7 +3,27 @@
    
             <?php if ($_SESSION['user'] == 'admin') {
     ?>
-                                
+                      <div style="   margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 100px;
+    margin-left: 100px; text-align:center;" class="jumbotron">
+  <h1>News</h1>
+  <p><?php 
+  
+  $news = file_get_contents("https://raw.githubusercontent.com/alwaysontop617/webister/master/NEW.txt"); 
+  if (strlen($news) > "190") {
+    echo substr($news, 0, 190) . "...</p>";
+    ?>
+    
+    <p><a class="btn btn-primary btn-lg" href="https://raw.githubusercontent.com/alwaysontop617/webister/master/NEW.txt" role="button">Learn more</a></p>
+    <?php
+  } else {
+   echo $news . "</p>";
+  }
+  
+  ?>
+  
+</div>          
   <ul class="list-group">
   <li class="list-group-item">Power Management</li>
   <li class="list-group-item">            <a type="button" href="action.php?act=pwr" class="btn btn-default"><i class="fa  fa-5x fa-power-off"></i><hr>Stop</a>
