@@ -3,7 +3,7 @@ node {
    sh 'rm -rf webister && git clone https://github.com/alwaysontop617/webister.git'
    sh 'cd webister && cp -R * ../'
    sh 'echo "Compiling Packages..."'
-   sh 'echo $BUILD_NUMBER + $BUILD_ID > application/tmp/webister/data/version'
+   sh 'echo $BUILD_NUMBER + $BUILD_ID > application/tmp/webister/interface/data/version'
    sh 'dpkg-deb --build application'
    
    stage 'req'
