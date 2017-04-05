@@ -151,6 +151,10 @@ mysqli_close($con);
 ?></b></a> 
     </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+               <li><a><span class="badge">build # <?php echo file_get_contents("data/version"); ?></span></a></li>
+               <li><a><span class="badge"><?php echo php_uname("s"); ?> <?php echo php_uname("r"); ?>.<?php echo php_uname("m"); ?></span></a></li>
+              </ul>
       <ul class="nav navbar-nav navbar-right">
           <li><a href="cp.php"><i class="fa fa-1x fa-home"></i></a></li>
          <li><a href="FileManager.php"><i class="fa fa-1x fa-file"></i></a></li>
@@ -175,7 +179,7 @@ mysqli_close($con);
 			}
 			?>
       <li><a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-1x fa-user"></i></a></li>
-      <li><a href="logout.php">Log off</a></li>
+      <li><a href="logout.php">Log out</a></li>
             </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
