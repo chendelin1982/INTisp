@@ -93,11 +93,12 @@ $result = mysqli_query($con, $sql);
             <title>Webister</title>
             <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
             <link rel="icon" href="https://www.kalzediahosting.com/assets/kh.png">
-          
+          <link rel="stylesheet" type="text/css" href="style/tour.css">
             <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
             <?php if (file_Get_contents("data/theme") == "default") { ?>
             <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\bootstrap.min.css">
                  <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\admin.css">
+                 
             <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\custom.css">
 			            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\local.css">
             <?php } ?>
@@ -116,6 +117,7 @@ $result = mysqli_query($con, $sql);
             <?php if (file_Get_contents("data/theme") == "dark") { ?>
             <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\dark.css">
             <?php } ?>
+            
             </head>
     <body class="skin-blue dashboard">
 
@@ -234,4 +236,12 @@ mysqli_close($con);
              
                    
                        <hr>
-                       
+                       <?php
+                       if (!isSSL()) {
+                           ?>
+                           <div class="alert alert-danger">
+  <strong>Danger!</strong> You are connected to Webister however your connection is insecure.
+</div>
+                           <?php
+                           }
+                           ?>

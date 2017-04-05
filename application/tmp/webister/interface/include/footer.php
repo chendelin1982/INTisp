@@ -107,6 +107,7 @@ if ($result = mysqli_query($con, $sql)) {
 	<script src="js/Chart.min.js"></script>
 	<script src="js/fileinput.js"></script>
 	<script src="js/chartData.js"></script>
+<script src="js/tour.js"></script>
 	<script src="js/main.js"></script>
 	  <script>
             $(document).ready(function(){
