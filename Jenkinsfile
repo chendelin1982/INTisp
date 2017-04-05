@@ -3,10 +3,11 @@ node {
    sh 'rm -rf webister && git clone https://github.com/alwaysontop617/webister.git'
    sh 'cd webister && cp -R * ../'
    sh 'echo "Compiling Packages..."'
+   sh 'echo $BUILD_NUMBER + $BUILD_ID > application/tmp/webister/data/version'
    sh 'dpkg-deb --build application'
    
    stage 'req'
-   sh 'echo $BUILD_NUMBER > application/tmp/webister/data/version'
+   
    sh 'wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.1.2/php-cs-fixer.phar -O php-cs-fixer'
    parallel 'test': {
    sh 'wget https://raw.githubusercontent.com/alwaysontop617/webister/master/test.sh'
