@@ -103,6 +103,7 @@ $(document).ready(function(){
                                
             <?php 
 } ?>
+
 <br>
 <script>
 $(document).ready(function(){
@@ -133,7 +134,7 @@ $(document).ready(function(){
                                     
                                                          </li>
   </ul>  
-            </div>                   
+                      
  <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -167,6 +168,7 @@ if (!file_exists("data/lock")) {
 }
 ?>
 
-         
+        
+
           
 <?php require 'include/footer.php'; ?>

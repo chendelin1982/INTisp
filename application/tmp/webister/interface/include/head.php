@@ -210,7 +210,7 @@ mysqli_close($con);
       
     </div>
   </div>
-  
+  </div>
 </div>
             <section class="content">
 

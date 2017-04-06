@@ -131,8 +131,7 @@ if ($result = mysqli_query($con, $sql)) {
     </div>
    
 </div>       
-
- <div class="list list-info">
+<div class="list list-info">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="H7P5P7PY5C4EL">
@@ -141,6 +140,8 @@ if ($result = mysqli_query($con, $sql)) {
 </form>
 
         </div>
+</div> 
+ 
 </section>
                 </div>
             </section>
