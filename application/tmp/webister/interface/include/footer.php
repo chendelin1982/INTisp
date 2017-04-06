@@ -2,6 +2,16 @@
                        
                     </section>
                     <section class="col-lg-3">
+                        <div class="list list-info">
+
+   
+ <form class="navbar-form" role="search">
+                <div class="input-group">
+             <h1><?php echo $_SESSION['user']; ?></h1>
+             
+                </div>
+            </form>
+                        </div>
                     <div class="list list-info">
                                       <?php echo file_get_contents('data/head'); ?>
                     </div>
@@ -58,6 +68,35 @@ $result = mysqli_query($con, $sql);
     <span class="sr-only"><?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>% Complete</span>
   </div>
 </div></li>
+<li>
+    Data Folder (
+    <?php
+    
+    function scan_dir($path){
+    $ite=new RecursiveDirectoryIterator($path);
+    $nbfiles=0;
+    foreach (new RecursiveIteratorIterator($ite) as $filename=>$cur) {
+        $filesize=$cur->getSize();
+        $nbfiles++;
+        $files[] = $filename;
+    }
+
+ 
+
+    return array('total_files'=>$nbfiles,'files'=>$files);
+}
+$files = scan_dir('data');
+echo $files['total_files'];
+?>
+/100):
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $files['total_files']; ?>"
+  aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $files['total_files']; ?>%">
+    <span class="sr-only"><?php echo $files['total_files']; ?>% Complete</span>
+  </div>
+</div>
+</li>
+
           </ul>
           
           <table class="table table-hover">
@@ -90,7 +129,19 @@ if ($result = mysqli_query($con, $sql)) {
                                         </table>
         </table>
     </div>
-</div>                    </section>
+   
+</div>       
+
+ <div class="list list-info">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="H7P5P7PY5C4EL">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt=""  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
+</form>
+
+        </div>
+</section>
                 </div>
             </section>
         </div>
@@ -99,7 +150,7 @@ if ($result = mysqli_query($con, $sql)) {
     Copyright Adaclare Technologies
     
 </div>
-<script src="js/jquery.min.js"></script>
+
 	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.dataTables.min.js"></script>
@@ -107,14 +158,9 @@ if ($result = mysqli_query($con, $sql)) {
 	<script src="js/Chart.min.js"></script>
 	<script src="js/fileinput.js"></script>
 	<script src="js/chartData.js"></script>
-<script src="js/tour.js"></script>
+
 	<script src="js/main.js"></script>
-	  <script>
-            $(document).ready(function(){
-    setTimeout(function() {
-		$("#preloader").fadeOut();
-	},3000);
-});
-        </script>
+<script src="js/tour.js"></script>
+
 		</body>
 </html>

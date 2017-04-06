@@ -61,31 +61,11 @@ $result = mysqli_query($con, $sql);
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            .loadText{
-    font-family: Arial;
-    color:#000;
-	font-size: 30px;
-}
-.preloader{
-    background-color:#FFF;
-    height: 100%;
-	padding-top: 60px;
-	margin-left: -20px;
-	margin-top: -20px;
-	position: fixed;
-	width: 100%;
-	z-index: 2;
-}
-        </style>
         <?php
         $cp = basename($_SERVER["SCRIPT_FILENAME"], '.php');
         if ($cp == "cp") {
             ?>
-           <div class="preloader" id="preloader">
-    <img src="http://www.arabianbusiness.com/skins/ab.main/gfx/loading_spinner.gif" class="img-responsive center-block">
-	<p class="text-center loadText">Loading...</p>
-</div>
+         
 <?php } ?>
                     <meta charset="UTF-8">
                     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
@@ -94,6 +74,7 @@ $result = mysqli_query($con, $sql);
             <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
             <link rel="icon" href="https://www.kalzediahosting.com/assets/kh.png">
           <link rel="stylesheet" type="text/css" href="style/tour.css">
+          
             <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
             <?php if (file_Get_contents("data/theme") == "default") { ?>
             <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\bootstrap.min.css">
@@ -102,7 +83,7 @@ $result = mysqli_query($con, $sql);
             <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\custom.css">
 			            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\local.css">
             <?php } ?>
-            
+            <script src="js/jquery.min.js"></script>
             <script src="cpanel\bootpanel\js\engine.js" type="text/javascript"></script>
      
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -117,7 +98,7 @@ $result = mysqli_query($con, $sql);
             <?php if (file_Get_contents("data/theme") == "dark") { ?>
             <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\dark.css">
             <?php } ?>
-            
+         
             </head>
     <body class="skin-blue dashboard">
 
@@ -156,7 +137,10 @@ mysqli_close($con);
           <ul class="nav navbar-nav">
                <li><a><span class="badge">build # <?php echo file_get_contents("data/version"); ?></span></a></li>
                <li><a><span class="badge"><?php echo php_uname("s"); ?> <?php echo php_uname("r"); ?>.<?php echo php_uname("m"); ?></span></a></li>
+           
               </ul>
+           
+          
       <ul class="nav navbar-nav navbar-right">
           <li><a href="cp.php"><i class="fa fa-1x fa-home"></i></a></li>
          <li><a href="FileManager.php"><i class="fa fa-1x fa-file"></i></a></li>
@@ -181,7 +165,7 @@ mysqli_close($con);
 			}
 			?>
       <li><a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-1x fa-user"></i></a></li>
-      <li><a href="logout.php">Log out</a></li>
+      <li><a href="logout.php"><i class="fa fa-1x fa fa-sign-out"></i></a></li>
             </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
