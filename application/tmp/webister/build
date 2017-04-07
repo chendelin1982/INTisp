@@ -136,7 +136,6 @@ fi
 check php
 check mysql
 check telnet
-echo "The Ip for your server Detected was $(wget -qO- http://ipecho.net/plain)"
 echo "The default username and password is admin"
 echo "Visit the control panel at port 8081."
 echo -e "###############################################################################"

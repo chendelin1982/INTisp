@@ -59,8 +59,50 @@ $".'data'."   = 'webister';
 
 ");
 
-mysql_connect('localhost', 'root', $argv[1]);
-mysql_query("CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';");
-mysql_query('CREATE DATABASE admin');
-mysql_query("GRANT ALL ON admin.* TO 'admin'@'localhost'");
-mysql_close();
+
+
+
+
+$databasename = $_POST["databasename"];
+$dbpass = $_POST["dbpass"];
+
+
+
+// store connection info...
+
+$connection=mysqli_connect("localhost","root","$DBPass");
+
+
+// check connection...
+
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+
+$sql="CREATE DATABASE admin";
+
+mysqli_query($connection,$sql);
+
+    // Create user
+
+$sql='grant usage on *.* to admin@localhost identified by ' . "'" . "admin" . "'";
+
+mysqli_query($connection,$sql);
+
+
+  
+
+$sql="grant all privileges on admin.* to admin@localhost";
+
+#echo "$sql";
+mysqli_query($connection,$sql);
+
+
+#Depreciated
+#mysql_connect('localhost', 'root', $argv[1]);
+#mysql_query("CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';");
+#mysql_query('CREATE DATABASE admin');
+#mysql_query("GRANT ALL ON admin.* TO 'admin'@'localhost'");
+#mysql_close();
