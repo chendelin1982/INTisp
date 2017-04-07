@@ -58,14 +58,14 @@ $result = mysqli_query($con, $sql);
          echo '<i class="fa fa-times" aria-hidden="true"></i>';
      }
     ?> </li>
-    <li>	Disk Space (<?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>/<?php echo $quote; ?>):<div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>"
+    <li>	Disk Space (<?php echo GetDirectorySize('/var/webister/'.$myp); ?>/<?php echo $quote; ?>):<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo GetDirectorySize('/var/webister/'.$myp); ?>"
   aria-valuemin="0" aria-valuemax="<?php 
   if ($quote == "∞") {echo "99999999999999999";} else {
   echo $quote;
   }
-  ?>" style="width:<?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>%">
-    <span class="sr-only"><?php echo bcdiv(GetDirectorySize('/var/webister/'.$myp), 1048576, 2); ?>% Complete</span>
+  ?>" style="width:<?php echo GetDirectorySize('/var/webister/'.$myp); ?>%">
+    <span class="sr-only"><?php echo GetDirectorySize('/var/webister/'.$myp); ?>% Complete</span>
   </div>
 </div></li>
 <li>
