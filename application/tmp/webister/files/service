@@ -14,32 +14,17 @@ if [[ $EUID -ne 0 ]]; then
 fi
 case "$1" in
   start)
-    # Start daemons.
-
     echo -n $"Starting webister daemon: "
-
-    echo
     su webister -c "cd /var/webister/80 && sudo php -S 0.0.0.0:8080 &>/dev/null &"
     su webister -c "cd /var/webister/interface && sudo php -S 0.0.0.0:8081 &>/dev/null &"
-    #development purpose only
-    #su webister -c "cd /home/ubuntu/workspace/interface && sudo php -S 0.0.0.0:8081 &>/dev/null &"
-    #end dev purpose only
-    su webister -c "python /var/webister/server.py &>/dev/null &"
-    echo 
-    #service mysql start No need
     mysql --batch --raw -u root -p$(php /etc/init.d/grabpass.php) -hlocalhost -Dwebister -e'SELECT port FROM `Users`' | while read MM; do
     fgd="port"
     if [ "$MM" != "$fgd" ]; then
-    a='cd /var/webister/';
-    aq=' && php -S 0.0.0.0:';
-    b="$MM"
     if [ ! -d /var/webister/$MM ]; then
     echo "$MM did not exist so creating it"
-  mkdir -p /var/webister/$MM;
-fi
-    c=' &>/dev/null & '
-    cc=$a$b$aq$b$c
-    su webister -c "$cc"
+    mkdir -p /var/webister/$MM;
+    fi
+    su webister -c "cd /var/webister/ && php -S 0.0.0.0:$MM &>/dev/null &"
     fi
     done
     ;;
@@ -64,4 +49,3 @@ fi
 esac
 
 exit 0
-//Done
