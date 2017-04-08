@@ -78,4 +78,5 @@
     
     }
     ?></tbody></table>
+    <p>To use this, first you will need to get your api key. The direct url will be "[Your site here]:8081/gen.php?id=[Api key Here]".</p>
 <?php require 'include/footer.php'; ?>
