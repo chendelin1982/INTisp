@@ -22,48 +22,47 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password)."','0','".
 
         $returnval = $returnval.'<br>Creating Database';
         
-$databasename = $_POST["databasename"];
-$dbpass = $_POST["dbpass"];
+        $databasename = $_POST["databasename"];
+        $dbpass = $_POST["dbpass"];
 
 
 
-// store connection info...
+        // store connection info...
 
-$connection=mysqli_connect("localhost","root","$pass");
-
-
-// check connection...
-
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+        $connection=mysqli_connect("localhost", "root", "$pass");
 
 
-$sql="CREATE DATABASE $username";
+        // check connection...
 
-mysqli_query($connection,$sql);
+        if (mysqli_connect_errno()) {
+                  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
 
-    // Create user
 
-$sql='grant usage on *.* to ' . $username . '@localhost identified by ' . "'" . "$password" . "'";
+        $sql="CREATE DATABASE $username";
 
-mysqli_query($connection,$sql);
+        mysqli_query($connection, $sql);
+
+        // Create user
+
+        $sql='grant usage on *.* to ' . $username . '@localhost identified by ' . "'" . "$password" . "'";
+
+        mysqli_query($connection, $sql);
 
 
   
 
-$sql="grant all privileges on admin.* to admin@localhost";
+        $sql="grant all privileges on admin.* to admin@localhost";
 
-#echo "$sql";
-mysqli_query($connection,$sql);
+        // echo "$sql";
+        mysqli_query($connection, $sql);
 
 
-        #mysql_connect('localhost', 'root', "$pass");
-        #mysql_query("CREATE USER '$username'@'localhost' IDENTIFIED BY '$username';");
-        #mysql_query("CREATE DATABASE $username");
-        #mysql_query("GRANT ALL ON $username.* TO '$username'@'localhost'");
-        #mysql_close();
+        // mysql_connect('localhost', 'root', "$pass");
+        // mysql_query("CREATE USER '$username'@'localhost' IDENTIFIED BY '$username';");
+        // mysql_query("CREATE DATABASE $username");
+        // mysql_query("GRANT ALL ON $username.* TO '$username'@'localhost'");
+        // mysql_close();
         $returnval = $returnval.'<br>Trying to Restart Webister';
         shell_exec('sudo service webister restart> /dev/null 2>/dev/null');
         $returnval = $returnval.'<br>Done! Please restart webister';
