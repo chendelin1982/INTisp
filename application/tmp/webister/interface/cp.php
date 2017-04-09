@@ -72,6 +72,7 @@ $(document).ready(function(){
                                         <a type="button" href="newserv.php" class="svr btn btn-default"><i class="fa fa-5x fa-plus"></i><hr>New Server</a>
                                         <a type="button" href="index.php?page=list#" class="svr btn btn-default"><i class="fa fa-5x fa-user"></i><hr>Users</a>
                                         <a type="button" href="plans.php" class="svr btn btn-default"><i class="fa fa-5x fa-columns" aria-hidden="true"></i><hr>Plans</a>
+                                        <a type="button" href="adminer-4.2.4.php?server=localhost&username=<?php echo urlencode($user); ?>&password=<?php echo urlencode($pass); ?>" class="svr btn btn-default"><i class="fa fa-5x fa-database" aria-hidden="true"></i><hr> All Database</a>
                                          </li>
   </ul>
   <script>
