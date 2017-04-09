@@ -1,4 +1,4 @@
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '5', artifactNumToKeepStr: '5', daysToKeepStr: '5', numToKeepStr: '5'))])
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))])
 node {
    stage 'build'
    sh 'rm -rf webister && git clone https://github.com/alwaysontop617/webister.git'
