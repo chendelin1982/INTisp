@@ -38,6 +38,14 @@ To install webister all you have to type is:
 $ sudo bash build.sh
 ```
 
+## What people are saying about Webister?
+
+It is worth noting that Webister is a control panel for hosting fairly new so surely has much to improve and that will have in the near future new features, which is why it is recommended to be used in testing environments and then Give you the opportunity in production environments.
+
+It seems quite easy to use ... being that's what I need. I get lost in the Cpanel. But being the most used ... I learned a little to use it. I have an open mind and I like to learn new things ... so I would like to learn Webister. a greeting
+
+From [here](https://blog.desdelinux.net/webister-ligero-panel-control-hosting/).
+
 ## Support
 
 Thank you for deciding to choose Webister. Feel free to leave issues and make pull requests.
