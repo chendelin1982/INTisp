@@ -138,7 +138,7 @@ if ($result = mysqli_query($con, $sql)) {
 <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt=""  src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif">
 </form>
-
+ <div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#555555'></div><script type='text/javascript'>setTimeout(function(){{var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location && location.href && location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&ctf=False&ui=true&settings=undefined&from=';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); }},0);</script>
         </div>
 </div> 
  
@@ -146,9 +146,11 @@ if ($result = mysqli_query($con, $sql)) {
                 </div>
             </section>
         </div>
+           
         <script src="cpanel/bootpanel/js/bootstrap.min.js" type="text/javascript"></script>
         <div id="branding">
-    Copyright Adaclare Technologies
+        
+    Copyright Adaclare Technologies | Powered By Bing Translate
     
 </div>
 
