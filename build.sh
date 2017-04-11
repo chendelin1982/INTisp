@@ -13,10 +13,20 @@ echo "Compiling Packages..."
 sudo add-apt-repository ppa:neurobin/ppa
 sudo apt-get update
 sudo apt-get install shc
+cd application/tmp/webister/ && zip -r --password "$A-$B-$C-$D" interface.zip install.php interface website files && cd ../../../
 shc -f insproc -o application/tmp/webister/build
-dpkg-deb --build application
+echo "Creating Enviroment"
+mkdir build
+mkdir build/tmp
+mkdir build/tmp/webister
+cp application/tmp/webister/interface.zip build/tmp/webister/
+cp application/tmp/webister/build build/tmp/webister/
+cp application/tmp/webister/licence-key build/tmp/webister/
+mkdir build/DEBIAN
+cp application/DEBIAN/* build/DEBIAN/
+dpkg-deb --build build
 echo "Installing Package..."
 rm -rf /var/webister
 rm -rf /tmp/webister
-dpkg -i application.deb
-mv application.deb webister-$(cat application/tmp/webister/interface/data/version).deb
+dpkg -i build.deb
+mv build.deb webister-$(cat application/tmp/webister/interface/data/version).deb

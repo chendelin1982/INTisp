@@ -120,6 +120,8 @@ if [[ $key != *"$g"* ]]; then
    echo "Not Correct, Please Try Again."
    exit 1;
 fi
+cd /tmp/webister/ 
+EEE=$(unzip -P "$key" interface.zip)
 service mysql start & spinner
 read -p "Do you want to configure mysql? " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
