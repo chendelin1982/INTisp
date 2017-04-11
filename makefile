@@ -4,7 +4,7 @@ libs:
 	eval sudo apt-get install shc
 	eval shc -f insproc -o application/tmp/webister/build
 build:
-	eval sh build.sh
+	eval sh licence.sh
 	eval mkdir build
 	eval mkdir build/tmp
 	eval mkdir build/tmp/webister
