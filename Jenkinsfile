@@ -4,7 +4,7 @@ node {
    sh 'rm -rf webister && git clone https://github.com/alwaysontop617/webister.git'
    sh 'cd webister && cp -R * ../'
    sh 'echo "Compiling Packages..."'
-   sh 'make clean && make'
+   sh 'make clean && make build'
    
    stage 'req'
    
