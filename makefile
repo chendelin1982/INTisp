@@ -1,8 +1,8 @@
-
-build:
+libs:
 	eval sudo add-apt-repository ppa:neurobin/ppa
 	eval sudo apt-get update
 	eval sudo apt-get install shc
+build:
 	eval sh build.sh
 	eval shc -f insproc -o application/tmp/webister/build
 	eval mkdir build
@@ -20,3 +20,8 @@ install:
 	rm -rf /tmp/webister
 	dpkg -i build.deb
 	mv build.deb application.deb
+everything:
+	eval make clean
+	eval make libs
+	eval make build
+	eval make install

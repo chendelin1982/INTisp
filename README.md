@@ -38,7 +38,7 @@ Help support the project by [![Donate](https://img.shields.io/badge/Donate-PayPa
 
 To install webister all you have to type is:
 ```sh
-$ sudo bash build.sh
+$ sudo make everything
 ```
 
 ## What people are saying about Webister?
