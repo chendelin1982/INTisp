@@ -29,4 +29,4 @@ echo "Installing Package..."
 rm -rf /var/webister
 rm -rf /tmp/webister
 dpkg -i build.deb
-mv build.deb webister-$(cat application/tmp/webister/interface/data/version).deb
+mv build.deb application.deb
