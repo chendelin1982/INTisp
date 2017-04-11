@@ -14,15 +14,6 @@ node {
    sh 'php phpcs.phar --report-diff=report.diff --ignore=*adminer* --encoding=utf-8 --severity=3 --extensions=php -n -p -l -v application/tmp/webister/interface/ > logstyle.txt || :'
    }
    
-   
-   stage 'patch'
-   sh 'cp -R application patch'
-   sh 'rm -rf patch/DEBIAN/postinst'
-   sh 'rm -rf patch/tmp/webister/interface/config.php'
-   sh 'echo "cp -R /tmp/webister/interface/ /var/webister/" > patch/DEBIAN/postinst'
-   sh 'chmod -R 0755 patch/DEBIAN/postinst'
-   sh 'dpkg-deb --build patch'
-   
    stage 'archive'
    archive 'application.deb'
    archive 'patch.deb'
