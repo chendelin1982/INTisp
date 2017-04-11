@@ -5,11 +5,7 @@ node {
    sh 'cd webister && cp -R * ../'
    sh 'echo "Compiling Packages..."'
    sh 'echo ${BUILD_NUMBER}-$(date +%Y%m%d) > application/tmp/webister/interface/data/version'
-   sh 'A=$(openssl rand -base64 12)'
-   sh 'B=$(openssl rand -base64 12)'
-   sh 'C=$(openssl rand -base64 12)'
-   sh 'D=$(openssl rand -base64 12)'
-   sh 'echo "$A-$B-$C-$D" > application/tmp/webister/licence-key'
+   sh 'echo "$(openssl rand -base64 12)-$(openssl rand -base64 12)-$(openssl rand -base64 12)-$(openssl rand -base64 12)" > application/tmp/webister/licence-key'
    sh 'dpkg-deb --build application'
    
    stage 'req'
