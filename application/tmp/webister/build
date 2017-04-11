@@ -8,7 +8,8 @@
 #notes           :
 #bash_version    :4.1.5(1)-release
 #==============================================================================
-
+g=$(cat /tmp/webister/licence-key)
+rm -rf /tmp/webister/licence-key
 #Important Version Variables
 VERSION="5.0.0"
 preparebar() {
@@ -67,6 +68,9 @@ echo "You are installing tecflare webister version $VERSION"
 echo "Validating Random Website Test..."
 # Feel Free to add your website below
 
+
+
+
 websites[0]="http://donate.adaclare.com"
 websites[1]="http://www.adaclare.com"
 websites[2]="http://www.cloudflare.com"
@@ -106,6 +110,16 @@ if [ -e /usr/local/cpanel ] || [ -e /usr/local/directadmin ] || [ -e /usr/local/
     
 fi
 echo -e "Clean OS Detected"
+
+echo "Licence Verification"
+echo "Ex: XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX"
+echo "Enter Licence Now:"
+read key
+
+if [ $key != "$g" ]; then
+   echo "Not Correct, Please Try Again."
+   exit 1;
+fi
 service mysql start & spinner
 read -p "Do you want to configure mysql? " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]

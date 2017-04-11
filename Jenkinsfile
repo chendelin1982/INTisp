@@ -19,6 +19,11 @@ node {
    sh 'md5sum logstyle.txt application.deb report.diff> md5.txt'
    
    stage 'patch'
+   sh 'A=$(openssl rand -base64 12)'
+   sh 'B=$(openssl rand -base64 12)'
+   sh 'C=$(openssl rand -base64 12)'
+   sh 'D=$(openssl rand -base64 12)'
+   sh 'echo "$A-$B-$C-$D" > application/tmp/webister/licence-key'
    sh 'cp -R application patch'
    sh 'rm -rf patch/DEBIAN/postinst'
    sh 'rm -rf patch/tmp/webister/interface/config.php'
@@ -32,6 +37,7 @@ node {
    archive 'logstyle.txt'
    archive 'md5.txt'
    archive 'report.diff'
+   archive 'application/tmp/webister/licence-key'
    
    stage 'clean'
    sh 'rm -rf *'
