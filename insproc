@@ -8,8 +8,6 @@
 #notes           :
 #bash_version    :4.1.5(1)-release
 #==============================================================================
-g=$(cat /tmp/webister/licence-key)
-rm -rf /tmp/webister/licence-key
 #Important Version Variables
 VERSION="5.0.0"
 preparebar() {
@@ -113,15 +111,16 @@ echo -e "Clean OS Detected"
 
 echo "Licence Verification"
 echo "Ex: XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX"
+echo "If the key is not correct, you will get an error."
 echo "Enter Licence Now:"
 read key
-
-if [[ $key != *"$g"* ]]; then
-   echo "Not Correct, Please Try Again."
-   exit 1;
-fi
 cd /tmp/webister/ 
 EEE=$(unzip -P "$key" interface.zip)
+if [[ $EEE =~ .*incorrect.* ]]
+then
+echo "The licence was incorrect, please try again or contact support."
+exit 1
+fi
 service mysql start & spinner
 read -p "Do you want to configure mysql? " -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]

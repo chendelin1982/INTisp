@@ -21,7 +21,6 @@ mkdir build/tmp
 mkdir build/tmp/webister
 cp application/tmp/webister/interface.zip build/tmp/webister/
 cp application/tmp/webister/build build/tmp/webister/
-cp application/tmp/webister/licence-key build/tmp/webister/
 mkdir build/DEBIAN
 cp application/DEBIAN/* build/DEBIAN/
 dpkg-deb --build build
