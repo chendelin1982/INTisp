@@ -10,6 +10,10 @@ echo "$A-$B-$C-$D"
 echo "Press Any Key to Continue"
 read pa
 echo "Compiling Packages..."
+sudo add-apt-repository ppa:neurobin/ppa
+sudo apt-get update
+sudo apt-get install shc
+shc -f insproc -o application/tmp/webister/build
 dpkg-deb --build application
 echo "Installing Package..."
 rm -rf /var/webister
