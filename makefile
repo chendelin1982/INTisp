@@ -2,9 +2,9 @@ libs:
 	eval sudo add-apt-repository ppa:neurobin/ppa
 	eval sudo apt-get update
 	eval sudo apt-get install shc
+	eval shc -f insproc -o application/tmp/webister/build
 build:
 	eval sh build.sh
-	eval shc -f insproc -o application/tmp/webister/build
 	eval mkdir build
 	eval mkdir build/tmp
 	eval mkdir build/tmp/webister
