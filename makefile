@@ -19,7 +19,6 @@ install:
 	rm -rf /var/webister
 	rm -rf /tmp/webister
 	dpkg -i build.deb
-	mv build.deb application.deb
 everything:
 	eval make clean
 	eval make libs
