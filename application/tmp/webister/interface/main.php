@@ -1,159 +1,220 @@
-<?php echo file_get_contents('data/loginhead'); ?>
-<!-- Selim Doyranlı Tarafından Hazırlanmıştır : 08.10.2016 | Material Form -->
-<!-- https://selimdoyranli.com -->
-<!-- http://www.radkod.com -->
-<!-- https://www.sanalyer.com -->
-
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+<html>
+    <head>
+             <meta charset="UTF-8">
+                    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-    <meta charset="UTF-8">
-    <title>Login to Webister</title>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.js"></script>
-<link rel="stylesheet" type="text/css" href="css/grid12.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="css/login.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="css/animate.css" media="all"/>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-     <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: black;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 150;
-                height: 100vh;
-                margin: 0;
-                
-            }
+            <title>Webister</title>
+            <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+<style>@charset "utf-8";
 
-            .full-height {
-                height: 100vh;
-            }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-               
-            }
+@import url//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
 
-            .position-ref {
-                position: relative;
-            }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
 
-            .content {
-                text-align: center;
-                 border: 1px solid;
-                     padding-top: 50px;
-    padding-right: 50px;
-    padding-bottom: 50px;
-    padding-left: 50px;
-            }
+div.main{
+    background: #0264d6; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover,  #0264d6 1%, #1c2b5a 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%,#0264d6), color-stop(100%,#1c2b5a)); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  #0264d6 1%,#1c2b5a 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  #0264d6 1%,#1c2b5a 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  #0264d6 1%,#1c2b5a 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  #0264d6 1%,#1c2b5a 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+height:calc(100vh);
+width:100%;
+}
 
-            .title {
-                font-size: 84px;
-            }
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
 
-            .links > a {
-                color: black;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
+/* ---------- GENERAL ---------- */
 
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    
+* {
+  box-sizing: border-box;
+    margin:0px auto;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+
+}
+
+body {
+   
+    color: #606468;
+  font: 87.5%/1.5em 'Open Sans', sans-serif;
+  margin: 0;
+}
+
+a {
+	color: #eee;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+input {
+	border: none;
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.5em;
+	padding: 0;
+	-webkit-appearance: none;
+}
+
+p {
+	line-height: 1.5em;
+}
+
+.clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+}
+
+.container {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ---------- LOGIN ---------- */
+
+#login form{
+	width: 250px;
+}
+#login, .logo{
+    display:inline-block;
+    width:40%;
+}
+#login{
+border-right:1px solid #fff;
+  padding: 0px 22px;
+  width: 59%;
+}
+.logo{
+color:#fff;
+font-size:50px;
+  line-height: 125px;
+}
+
+#login form span.fa {
+	background-color: #fff;
+	border-radius: 3px 0px 0px 3px;
+	color: #000;
+	display: block;
+	float: left;
+	height: 50px;
+    font-size:24px;
+	line-height: 50px;
+	text-align: center;
+	width: 50px;
+}
+
+#login form input {
+	height: 50px;
+}
+fieldset{
+    padding:0;
+    border:0;
+    margin: 0;
+
+}
+#login form input[type="text"], input[type="password"] {
+	background-color: #fff;
+	border-radius: 0px 3px 3px 0px;
+	color: #000;
+	margin-bottom: 1em;
+	padding: 0 16px;
+	width: 200px;
+}
+
+#login form input[type="submit"] {
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #000000;
+  color: #eee;
+  font-weight: bold;
+  /* margin-bottom: 2em; */
+  text-transform: uppercase;
+  padding: 5px 10px;
+  height: 30px;
+}
+
+#login form input[type="submit"]:hover {
+	background-color: #d44179;
+}
+
+#login > p {
+	text-align: center;
+}
+
+#login > p span {
+	padding-left: 5px;
+}
+.middle {
+  display: flex;
+  width: 600px;
+}</style>
 </head>
 <body>
-
-
-<div class="col-lg-4 col-md-7 col-sm-6 col-xs-12     login-card">
-
- 
-    <form id="login-form" name="form" class="col-lg-12" method="POST" action="index.php?page=val" novalidate="novalidate">
-
-
-        <div class="col-lg-12 logo-kapsul">
-            <img width="300" height="300" class="logo" src="<?php echo file_get_contents('data/logo'); ?>" alt="Logo" />
-        </div>
-     
-
-        <div style="clear:both;"></div>
-
-        <div class="group">
-            <input type="text"  name="user" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label><i class="material-icons input-ikon">person_outline</i><span class="span-input">Username</span></label>
-        </div>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<div class="main">
     
-
- 
-        <div class="group">
-            <input type="password" name="pass" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label><i class="material-icons input-sifre-ikon">lock</i><span class="span-input">Password</span></label>
-        </div>
     
-        
-<a href="#" onclick="document.forms['form'].submit(); return false;" class="giris-yap-buton">Login</a>
+    <div class="container">
+<center>
+<div class="middle">
+      <div id="login">
 
-        <div class="forgot-and-create tab-menu">
-     
-        </div>
-      
+        <form action="index.php?page=val" method="post">
 
-    </form>
-  
-</div>
- <div class="flex-center position-ref full-height">
-          
-            <div class="content">
-                <div class="title m-b-md">
-                    Webister
-                </div>
-<hr>
-                <div class="links">
-                    <a href="http://www.adaclare.com/forums/">Forums</a>
-                    <a href="https://tflare.atlassian.net/wiki/">Documentation</a>
-                    <a href="http://www.adaclare.com:8080/">Builds</a>
-                    <a href="https://github.com/alwaysontop617/webister">GitHub</a>
-                </div>
-                <hr>
-               <div style="font-weight: bold;"> Powered By Webister</div>
-            </div>
+          <fieldset class="clearfix">
+
+            <p ><span class="fa fa-user"></span><input type="text" name="user" Placeholder="Username" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
+            <p><span class="fa fa-lock"></span><input type="password" name="pass" Placeholder="Password" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
             
-        </div>
-                <?php if (isset($_GET['error'])) {
-    ?>
-<div style="position:fixed; top:10px; right:10px; padding:25px; background:#fff; border:1px solid #ddd;">
-    Wrong username or password
-</div>
-<?php 
-} ?>
+             <div>
+                                
+                                <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Sign In"></span>
+                                <?php
+                                if (isset($_GET["error"])) {
+                                    echo "<br><div style='color:white;'>Incorrect Password or Username</div>";
+                                }
+                                ?>
+                            </div>
 
-    
-</body>
+          </fieldset>
+<div class="clearfix"></div>
+        </form>
+
+        <div class="clearfix"></div>
+
+      </div> <!-- end login -->
+      <div class="logo"><img src="<?php echo file_get_contents('data/logo'); ?>" alt="Logo" />
+          
+          <div class="clearfix"></div>
+      </div>
+      
+      </div>
+</center>
+    </div>
+
+</div></body>
 </html>
-<?php echo file_get_contents('data/loginfoot'); ?>
