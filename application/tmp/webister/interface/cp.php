@@ -140,6 +140,7 @@ $(document).ready(function(){
                                         <a    type="button" href="adminer-4.2.4.php?server=localhost" class="serv btn btn-default"><i class="fa fa-5x fa-database"></i><hr>Database</a>
                                         <a  type="button" href="wp.php" class="serv btn btn-default"><i class="fa fa-5x fa-wordpress"></i><hr>Wordpress</a>
                                         <a  type="button" href="phpinfo.php" class="serv btn btn-default"><i class="fa fa-5x fa-code"></i><hr>PHP Info</a>
+                                        <a  type="button" href="ucreate.php" class="serv btn btn-default"><i class="fa fa-5x fa-university"></i><hr>Webister U</a>
                                         <a  type="button" href="mobiapp.php" class="serv btn btn-default"><i class="fa fa-5x fa-mobile"></i><hr>Mobile App</a>
                                           <a id="serv"  type="button" href="<?php echo file_get_contents("data/forum"); ?>" class="serv btn btn-large btn-warning"><i class="fa fa-5x fa-file"></i><hr>Forum</a>
                                         <a type="button" href="<?php echo file_get_contents("data/support"); ?>" class="serv btn btn-large btn-danger"><i class="fa fa-5x fa-life-ring"></i><hr>Support</a>
