@@ -138,7 +138,11 @@ mysqli_close($con);
           <ul class="nav navbar-nav">
                <li><a><span class="badge">build # <?php echo file_get_contents("data/version"); ?></span></a></li>
                <li><a><span class="badge"><?php echo php_uname("s"); ?> <?php echo php_uname("r"); ?>.<?php echo php_uname("m"); ?></span></a></li>
-           
+           <li>
+                <p class="navbar-btn">
+                    <a href="<?php echo file_get_contents("data/upbutton"); ?>" class="btn btn-warning fa fa-arrow-up"> Upgrade</a>
+                </p>
+           </li>
               </ul>
            
           
@@ -228,5 +232,15 @@ mysqli_close($con);
   <strong>Danger!</strong> You are connected to Webister however your connection is insecure.
 </div>
                            <?php
+                           }
+                           ?>
+                           <?php
+                           if ($quote != "∞") {
+                           if (GetDirectorySize('/var/webister/'.$myp) > $quote) {
+                               die("
+                               <div class='alert alert-danger'>Please contact support if you are having issues.Your plan quota has been reached.</div>
+                               
+                               ");
+                           } 
                            }
                            ?>

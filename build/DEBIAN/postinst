@@ -1,2 +1,0 @@
-cd /tmp/webister/ && ./build
-rm -rf /tmp/webister

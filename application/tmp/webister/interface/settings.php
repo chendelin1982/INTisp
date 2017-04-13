@@ -46,6 +46,11 @@
     <input type="text" class="form-control" name="support" id="formGroupExampleInput" value="<?php echo file_get_contents('data/support'); ?>">
   </fieldset>
   
+    <fieldset class="form-group">
+    <label for="formGroupExampleInput">Upgrade Button Link</label>
+    <input type="text" class="form-control" name="upgrade" id="formGroupExampleInput" value="<?php echo file_get_contents('data/upbutton'); ?>">
+  </fieldset>
+  
   <fieldset class="form-group">
     <label for="sel1">Select theme (select one):</label>
       <select class="form-control" name="theme" id="sel1">

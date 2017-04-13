@@ -1,8 +1,8 @@
          
                        
                     </section>
-                    <section class="col-lg-3">
-                        <div class="list list-info">
+                    <section class="col-lg-3" data-step="6" data-intro="This will show info about your server and the way it works.">
+                        <div class="list list-info" >
 
    
  <form class="navbar-form" role="search">
