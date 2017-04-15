@@ -17,15 +17,22 @@ preparebar() {
     barspaces=$(printf "%*s" "$1")
     barchars=$(printf "%*s" "$1" | tr ' ' "$2")
 }
+command_exists () {
+    type "$1" &> /dev/null ;
+}
 progressbar() {
 # $1 - number (-1 for clearing the bar)
 # $2 - max number
+if command_exists dialog ; then
+echo ""
+else
     if [ $1 -eq -1 ]; then
         printf "\r  $barspaces\r"
     else
         barch=$(($1*barlen/$2))
         barsp=$((barlen-barch))
         printf "\r[%.${barch}s%.${barsp}s]\r" "$barchars" "$barspaces"
+    fi
     fi
 }
 spinner()
@@ -42,9 +49,7 @@ spinner()
     done
     printf "    \b\b\b\b"
 }
-command_exists () {
-    type "$1" &> /dev/null ;
-}
+
 echo
 	echo
 	echo "STAGE 1"
@@ -255,7 +260,7 @@ E="o"
         fi
         sleep 0.5
     done
-) |  dialog --clear --backtitle "Adaclare Technologies" --keep-tite --no-ok --no-cancel --no-kill --gauge "Welcome to Adaclare Webister\nThis is now installing Webister, You are done for right now. We will tell you if we need you again." 10 60 0
+) |  dialog --clear --title "Webister Installer $VERSION" --backtitle "Adaclare Technologies" --keep-tite --no-ok --no-cancel --no-kill --gauge "Welcome to Adaclare Webister\nThis is now installing Webister, You are done for right now. We will tell you if we need you again." 10 60 0
 fi
     
 }
