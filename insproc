@@ -149,7 +149,7 @@ fi
 echo "Checking for other web hosting control panels..."
 if [ -e /usr/local/cpanel ] || [ -e /usr/local/directadmin ] || [ -e /usr/local/solusvm/www ] || [ -e /usr/local/home/admispconfig ] || [ -e /usr/local/lxlabs/kloxo ] || [ -e /var/webister ]; then
    if command_exists dialog ; then
-    dialog --title "Warning" --backtitle "Adaclare Technologies" --msgbox 'It appears that a control panel is already installed on your server.' 6 20
+    dialog --title "Warning" --backtitle "Adaclare Technologies" --msgbox 'It appears that a control panel is already installed on your server.' 6 100
     else
     echo -e "It appears that a control panel is already installed on your server"
     echo -e "This may create issues with the installer, CONTINUING..."
