@@ -15,8 +15,8 @@ fi
 case "$1" in
   start)
     echo -n $"Starting webister daemon: "
-    su webister -c "cd /var/webister/80 && sudo php -S 0.0.0.0:8080 &>/dev/null &"
-    su webister -c "cd /var/webister/interface && sudo php -S 0.0.0.0:8081 &>/dev/null &"
+    cd /var/webister/80 && sudo php -S 0.0.0.0:8080 &>/dev/null &
+    cd /var/webister/interface && sudo php -S 0.0.0.0:8081 &>/dev/null &
     mysql --batch --raw -u root -p$(php /etc/init.d/grabpass.php) -hlocalhost -Dwebister -e'SELECT port FROM `Users`' | while read MM; do
     fgd="port"
     if [ "$MM" != "$fgd" ]; then
@@ -24,7 +24,7 @@ case "$1" in
     echo "$MM did not exist so creating it"
     mkdir -p /var/webister/$MM;
     fi
-    su webister -c "cd /var/webister/ && php -S 0.0.0.0:$MM &>/dev/null &"
+    cd /var/webister/ && php -S 0.0.0.0:$MM &>/dev/null &
     fi
     done
     ;;
