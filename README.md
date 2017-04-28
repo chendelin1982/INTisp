@@ -42,6 +42,11 @@ To install webister all you have to type is:
 $ sudo make everything
 ```
 
+## Installation of demo
+
+You will need to copy the demo folder to the root of your server and follow the directions.
+
+
 ## What people are saying about Webister?
 
 It is worth noting that Webister is a control panel for hosting fairly new so surely has much to improve and that will have in the near future new features, which is why it is recommended to be used in testing environments and then Give you the opportunity in production environments.
