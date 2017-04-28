@@ -1,17 +1,12 @@
+<!doctype html>
 <html>
-    <head>
-             <meta charset="UTF-8">
-                    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-            <title>Webister</title>
-            <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-<style>@charset "utf-8";
-
-
-@import url//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
-
-
-
+<head>
+	<meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Webister</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style>@charset "utf-8";
 div.main{
     background: #0264d6; /* Old browsers */
 background: -moz-radial-gradient(center, ellipse cover,  #0264d6 1%, #1c2b5a 100%); /* FF3.6+ */
@@ -174,47 +169,45 @@ fieldset{
 }</style>
 </head>
 <body>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <div class="main">
-    
-    
-    <div class="container">
-<center>
-<div class="middle">
-      <div id="login">
-
+	<div class="container">
+	<center>
+	<div class="middle">
+		<div id="login">
         <form action="index.php?page=val" method="post">
-
-          <fieldset class="clearfix">
-
-            <p ><span class="fa fa-user"></span><input type="text" name="user" Placeholder="Username" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
-            <p><span class="fa fa-lock"></span><input type="password" name="pass" Placeholder="Password" required></p> <!-- JS because of IE support; better: placeholder="Password" -->
+        	<fieldset class="clearfix">
+            <p>
+				<span class="fa fa-user"></span>
+				<input type="text" name="user" Placeholder="Username" required>
+			</p> <!-- JS because of IE support; better: placeholder="Username" -->
+            <p>
+				<span class="fa fa-lock"></span>
+				<input type="password" name="pass" placeholder="Password" required>
+			</p> <!-- JS because of IE support; better: placeholder="Password" -->
             
-             <div>
-                                
-                                <span style="width:50%; text-align:right;  display: inline-block;"><input type="submit" value="Sign In"></span>
-                                <?php
-                                if (isset($_GET["error"])) {
-                                    echo "<br><div style='color:white;'>Incorrect Password or Username</div>";
-                                }
-                                ?>
-                            </div>
-
-          </fieldset>
-<div class="clearfix"></div>
+            <div>                                
+            <span style="width:50%; text-align:right;  display: inline-block;">
+				<input type="submit" value="Sign In">
+			</span>
+			<?php
+			if (isset($_GET["error"])) {
+				echo "<br><div style='color:white;'>Incorrect Password or Username</div>";
+			}
+			?>
+			</div>
+          	</fieldset>
+			<div class="clearfix"></div>
         </form>
-
         <div class="clearfix"></div>
-
       </div> <!-- end login -->
-      <div class="logo"><img src="<?php echo file_get_contents('data/logo'); ?>" alt="Logo" />
+      <div class="logo"><img src="<?php echo file_get_contents('data/logo'); ?>" alt="Logo">
           
-          <div class="clearfix"></div>
+      <div class="clearfix"></div>
       </div>
       
       </div>
-</center>
-    </div>
-
-</div></body>
+	</center>
+    </div><!--/container-->
+</div><!--/main-->
+</body>
 </html>
