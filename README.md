@@ -18,9 +18,9 @@ Report a bug [here](http://adaclare.com/errtrck/bug_report_page.php)
 The windows version is [here](https://github.com/alwaysontop617/windows-webister)
 =======
 # Webister
-View the project page by [clicking here](http://alwaysontop617.github.io/webister).
+View the project page by [clicking here](http://webister.adaclare.com/).
 
-Vew the demo by [clicking here](https://www.adaclare.com/index.php/try-webister/).
+Vew the demo by [clicking here](https://adaclare.com/w-demo/).
 
 Help support the project by [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?token=Ea_rrJDbgtQPpP7fa1R8N_SuEQgxg2ZtaT77NZYhUJ7sZCJxxacpOionaVcz5erevcOpbG)
 
