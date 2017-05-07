@@ -48,6 +48,19 @@ $result = mysqli_query($con, $sql);
    <li>MySQL Password: <span class="badge">Same as CP</span></li>
    <li>Database: <span class="badge"><?php echo $_SESSION['user']; ?></span></li>
    <li>Webister Status: <i class="fa fa-check" aria-hidden="true"></i></li>
+    <li>FTP Hostname: <span class="badge"><?php echo gethostbyname(gethostname()); ?></li>
+    <li>FTP Username: <span class="badge"><?php echo $_SESSION['user']; ?></span></li>
+    <li>FTP Password: :<span class="badge"><?php
+$con = mysqli_connect($host, $user, $pass, $data);
+$sql = 'SELECT * FROM Users WHERE username = "'.$_SESSION['user'].'"';
+$result = mysqli_query($con, $sql);
+ while ($row = mysqli_fetch_row($result)) {
+     echo $row[2];
+  
+ }
+   mysqli_free_result($result);
+    mysqli_close($con);
+    ?></span></li>
    <li>Status: 
        <?php
 

@@ -300,6 +300,8 @@ BLAH=$(cp -R website /var/webister/80) & spinner
 progressbar 15 20
 installer "Copy Files" 90
 BLAH=$(chmod -R 777 /var/webister/80/) & spinner
+BLAH=$(sudo pip install pyftpdlib) & spinner
+BLAH=$(sudo cp files/ftpserv.py /var/webister/) & spinner
 progressbar 17 20
 installer "Changing Permissions" 95
 BLAH=$(php install.php $PASS) & spinner

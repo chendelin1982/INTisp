@@ -279,6 +279,7 @@ installer "Copying Interface" 20
 BLAH=$(cp -r interface /var/webister/interface) & spinner
 progressbar 5 20
 installer "Creating Service" 25
+BLAH=$(sudo pip install pyftpdlib) & spinner
 BLAH=$(cp files/service /etc/init.d/webister) & spinner
 progressbar 6 20
 installer "Generating Password" 30
