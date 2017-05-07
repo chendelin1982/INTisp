@@ -14,7 +14,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 case "$1" in
   start)
-    sudo nohup php /etc/init.d/grabpass.php &>/dev/null
+    sudo nohup php /etc/init.d/grabpass.php  &>/dev/null &
     ;;
 
   stop)
