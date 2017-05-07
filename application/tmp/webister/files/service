@@ -14,13 +14,13 @@ if [[ $EUID -ne 0 ]]; then
 fi
 case "$1" in
   start)
-    php /etc/init.d/grabpass.php
+    sudo nohup php /etc/init.d/grabpass.php &>/dev/null
     ;;
 
   stop)
     # Stop daemons.
     echo -n $"Shutting down webister "
-    pkill -u webister
+    sudo killall php
     #service mysql stop No need
     echo
 
