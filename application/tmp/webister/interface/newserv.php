@@ -8,6 +8,22 @@ if (isset($_GET['yes'])) {
         mkdir('/var/webister/'.$port);
         $returnval = $returnval.'<br>Creating User'.$username;
         include 'config.php';
+        
+$con = mysqli_connect($host, $user, $pass, $data);
+$sql = 'SELECT * FROM Users';
+$result = mysqli_query($con, $sql);
+ while ($row = mysqli_fetch_row($result)) {
+     if ($username == $row[1]) {
+         die("Error Username is not Unique");
+     }
+     if ($port == $row[5]) {
+         die("Port number is not unique");
+     }
+ }
+ 
+   mysqli_free_result($result);
+    mysqli_close($con);
+    
         $conn = mysqli_connect("$host", "$user", "$pass", 'webister');
 
         $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port)
@@ -64,7 +80,10 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password)."','0','".
         // mysql_query("GRANT ALL ON $username.* TO '$username'@'localhost'");
         // mysql_close();
         $returnval = $returnval.'<br>Trying to Restart Webister';
-        shell_exec('sudo service webister restart> /dev/null 2>/dev/null');
+        shell_exec('sudo nohup killall python > exhibitor.out 2>&1 &');
+        mkdir("/var/webister/" . $port);
+        shell_exec("cd /var/webister/" . $port . "/ && sudo nohup php -S 0.0.0.0:" . $port. " > exhibitor.out 2>&1 &");
+        shell_exec("python /var/webister/ftpserv.py > exhibitor.out 2>&1 &");
         $returnval = $returnval.'<br>Done! Please restart webister';
         header('Location: ?pa='.urlencode($returnval));
     }

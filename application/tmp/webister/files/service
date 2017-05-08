@@ -14,8 +14,9 @@ if [[ $EUID -ne 0 ]]; then
 fi
 case "$1" in
   start)
-    sudo nohup php /etc/init.d/grabpass.php  &>/dev/null &
-    sudo nohup python /var/webister/ftpserv.py &>/dev/null &
+    killall php
+    php /etc/init.d/grabpass.php
+    python /var/webister/ftpserv.py
     ;;
 
   stop)

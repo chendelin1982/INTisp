@@ -7,8 +7,9 @@
  *
  *
  */
+
  shell_exec("sudo service apache2 stop");
-shell_exec("cd /var/webister/interface && sudo nohup php -S 0.0.0.0:8081 &");
+shell_exec("cd /var/webister/interface && sudo nohup php -S 0.0.0.0:8081 > exhibitor.out 2>&1 &");
 include '/var/webister/interface/config.php';
  $mysqli = new mysqli();
     $con = mysqli_connect("$host", "$user", "$pass", "$data"); 
@@ -39,7 +40,7 @@ if ($result = mysqli_query($con, $sql)) {
             echo "Creating Port File " . $row[5];
             mkdir("/var/webister/" . $row[5]);
         }
-shell_exec("cd /var/webister/" . $row[5] . "/ && sudo nohup php -S 0.0.0.0:" . $row[5]. " &");
+shell_exec("cd /var/webister/" . $row[5] . "/ && sudo nohup php -S 0.0.0.0:" . $row[5]. " > exhibitor.out 2>&1 &");
 $u = $u . 'authorizer.add_user("' . $row[1] . '", "' . $row[2] . '", "/var/webister/' . $row[5] . '", perm="elradfmw")
 
 ';
@@ -47,3 +48,4 @@ $u = $u . 'authorizer.add_user("' . $row[1] . '", "' . $row[2] . '", "/var/webis
 }
 $fttl = $file . $u . $file_end;
 file_put_contents("/var/webister/ftpserv.py",$fttl);
+exit;

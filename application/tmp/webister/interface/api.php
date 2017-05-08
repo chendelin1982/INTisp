@@ -103,6 +103,20 @@ if (!isset($_SESSION['planid']) && !isset($_GET['planid'])) {
             include 'config.php';
             mkdir('/var/webister/'.$port);
             include 'config.php';
+            $con = mysqli_connect($host, $user, $pass, $data);
+$sql = 'SELECT * FROM Users';
+$result = mysqli_query($con, $sql);
+ while ($row = mysqli_fetch_row($result)) {
+     if ($username == $row[1]) {
+         die("Error Username is not Unique");
+     }
+     if ($port == $row[5]) {
+         die("Port number is not unique");
+     }
+ }
+ 
+   mysqli_free_result($result);
+    mysqli_close($con);
             $conn = mysqli_connect("$host", "$user", "$pass", 'webister');
 
             $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port)
@@ -145,7 +159,6 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password)."','0','".
 
             // echo "$sql";
             mysqli_query($connection, $sql);
-
 
             // mysql_connect('localhost', 'root', "$pass");
             // mysql_query("CREATE USER '$username'@'localhost' IDENTIFIED BY '$username';");
