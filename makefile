@@ -9,7 +9,7 @@ build:
 	eval cp application/DEBIAN/* build/DEBIAN/
 	eval dpkg-deb --build build
 clean:
-	eval rm -rf insproc.x.c build application.deb
+	eval rm -rf insproc.x.c build application.deb build.deb exhibitor.out test.py
 install:
 	rm -rf /var/webister
 	rm -rf /tmp/webister
