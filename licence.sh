@@ -4,8 +4,6 @@ A="$(openssl rand -base64 12)-$(openssl rand -base64 12)-$(openssl rand -base64 
 echo "$A" > application/tmp/webister/licence-key
 echo "Licence Key is:"
 echo "$A"
-echo "Press Any Key to Continue"
-read pa
 cd application/tmp/webister/ && zip -r --password "$A" interface.zip install.php interface website files && cd ../../../
 
 
