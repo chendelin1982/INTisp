@@ -1,0 +1,336 @@
+#!/bin/bash
+#title           :build
+#description     :This script will compile the code and create the files
+#author		       :dodiaraculus17
+#date            :20161101
+#version         :0.1    
+#usage		       :./build or sudo ./build
+#notes           :
+#bash_version    :4.1.5(1)-release
+#==============================================================================
+#Important Version Variables
+VERSION="5.0.0"
+preparebar() {
+# $1 - bar length
+# $2 - bar char
+    barlen=$1
+    barspaces=$(printf "%*s" "$1")
+    barchars=$(printf "%*s" "$1" | tr ' ' "$2")
+}
+command_exists () {
+    type "$1" &> /dev/null ;
+}
+progressbar() {
+# $1 - number (-1 for clearing the bar)
+# $2 - max number
+if command_exists dialog ; then
+echo ""
+else
+    if [ $1 -eq -1 ]; then
+        printf "\r  $barspaces\r"
+    else
+        barch=$(($1*barlen/$2))
+        barsp=$((barlen-barch))
+        printf "\r[%.${barch}s%.${barsp}s]\r" "$barchars" "$barspaces"
+    fi
+    fi
+}
+spinner()
+{
+    local pid=$!
+    local delay=0.75
+    local spinstr='+-!;&'
+    while [ "$(ps a | awk '{print $1}' | grep $pid)" ]; do
+        local temp=${spinstr#?}
+        printf " [%c]  " "$spinstr"
+        local spinstr=$temp${spinstr%"$temp"}
+        sleep $delay
+        printf "\b\b\b\b\b\b"
+    done
+    printf "    \b\b\b\b"
+}
+
+echo
+	echo
+	echo "STAGE 1"
+	echo "====================================================================="
+	echo
+	echo "--------------------Webister INSTALLER $VERSION----------------------"
+	echo "-------------------------www.adaclare.com----------------------------"
+	echo "---------------------------------------------------------------------"
+	echo
+	echo
+#Show the title screen
+echo "_______ _________        _______________ _______ ________ __________"
+echo "___    |______  /______ ___  ____/___  / ___    |___  __  ___  ____/"
+echo "__  /| |_  __  / _  __  /_  /     __  /  __  /| |__  /_/ /__  __/   "
+echo "_  ___ |/ /_/ /  / /_/ / / /___   _  /____  ___ |_  _  _/ _  /___   "
+echo "/_/  |_| __ _/    __ _/   ____/   /_____//_/  |_|/_/ |_|  /_____/   "
+preparebar 50 "#"
+echo "You are installing adaclare webister version $VERSION"
+echo "Validating Random Website Test..."
+# Feel Free to add your website below
+
+
+
+
+websites[0]="http://donate.adaclare.com"
+websites[1]="http://www.adaclare.com"
+websites[2]="http://www.cloudflare.com"
+websites[3]="http://www.google.com"
+websites[4]="http://www.php.net"
+random=$(( ( RANDOM % 4 )  + 0 ))
+website=${websites[$random]}
+random=$(( ( RANDOM % 4 )  + 0 ))
+website_one=${websites[$random]}
+random=$(( ( RANDOM % 4 )  + 0 ))
+website_two=${websites[$random]}
+if curl --output /dev/null --silent --head --fail "$website"; then
+  printf '%s\n' "$website is ok"
+else
+  printf '%s\n' "$website did not pass"
+  exit 1;
+fi
+if curl --output /dev/null --silent --head --fail "$website_one"; then
+  printf '%s\n' "$website_one is ok"
+else
+  printf '%s\n' "$website_one did not pass"
+  exit 1;
+fi
+if curl --output /dev/null --silent --head --fail "$website_two"; then
+  printf '%s\n' "$website_two is ok"
+else
+  printf '%s\n' "$website_two did not pass"
+  exit 1;
+fi
+fqdn=""
+echo -e "Validation Complete"
+
+
+if command_exists dialog ; then
+dialog --title "Webister $VERSION" --backtitle "Adaclare Technologies" --msgbox 'Welcome to the webister setup wizard. This installer will guide you through the installation wizard of webister.' 6 100
+fi
+
+echo "
+
+Licensed under the Adaclare Custom Licence; you may not use this file except in compliance with the License.
+
+We follow these licences:
+http://www.apache.org/licenses/LICENSE-2.0
+https://opensource.org/licenses/MIT
+
+Copyright (C) 2007 Adaclare Technologies <http://www.adaclare.com>
+Everyone is permitted to use and distribute verbatim copies
+of this license document, but changing it is not allowed.
+
+Webister is free software: you can redistribute it and/or modify
+it under the terms of the Adaclare Custom Licence as published by
+Adaclare Technologies. HOWEVER you are not allowed to distribute
+our software AT ALL.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE. IF ANYTHING BREAKS I AM NOT RESPONSIBLE FOR IT.
+
+
+" > licence.txt
+
+if command_exists dialog ; then
+    dialog --backtitle "Adaclare Technologies" --title "Please Accept the Agreement First" --textbox licence.txt 22 70
+    else
+    cat licence.txt
+fi
+
+
+echo "Checking for other web hosting control panels..."
+if [ -e /usr/local/cpanel ] || [ -e /usr/local/directadmin ] || [ -e /usr/local/solusvm/www ] || [ -e /usr/local/home/admispconfig ] || [ -e /usr/local/lxlabs/kloxo ] || [ -e /var/webister ]; then
+   if command_exists dialog ; then
+    dialog --title "Warning" --backtitle "Adaclare Technologies" --msgbox 'It appears that a control panel is already installed on your server.' 6 20
+    else
+    echo -e "It appears that a control panel is already installed on your server"
+    echo -e "This may create issues with the installer, CONTINUING..."
+fi
+
+    
+fi
+echo -e "Clean OS Detected"
+echo "If you do not have a licence, you will need to install dialog."
+if command_exists dialog ; then
+
+cmd=(dialog --backtitle "Adaclare Technologies" --keep-tite  --menu "Do you own a licence for webister?" 22 76 16)
+
+options=(1 "I own a licence"
+         2 "I do not own a licence"
+)
+
+choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
+
+ins () {
+  echo "Please get a licence before continuing"
+  exit 1;
+}
+
+for choice in $choices
+do
+    case $choice in
+        1)
+            break;
+            ;;
+        2)
+            ins;
+            ;;
+    esac
+done
+fi
+if command_exists dialog ; then
+dialog --backtitle "Adaclare Technologies" --inputbox \
+"What is your licence code (Ex: XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX) ?" 0 0 2> /tmp/inputbox.tmp.$$
+retval=$?
+key=`cat /tmp/inputbox.tmp.$$`
+rm -f /tmp/inputbox.tmp.$$
+case $retval in
+0)
+echo "";;
+1)
+exit 1;;
+esac
+else 
+echo "Licence Verification"
+echo "Ex: XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX"
+echo "If the key is not correct, you will get an error."
+echo "Enter Licence Now:"
+read key
+fi
+cd /tmp/webister/ 
+EEE=$(unzip -P "$key" interface.zip)
+if [[ $EEE =~ .*incorrect.* ]]
+then
+echo "The licence was incorrect, please try again or contact support."
+exit 1
+fi
+service mysql start & spinner
+if command_exists dialog ; then
+dialog --backtitle "Adaclare Technologies" --inputbox \
+"Do you want to configure mysql y/n?" 0 0 2> /tmp/inputbox.tmp.$$
+REPLY=`cat /tmp/inputbox.tmp.$$`
+rm -f /tmp/inputbox.tmp.$$
+else
+read -p "Do you want to configure mysql? " -n 1 -r
+fi
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    mysql_secure_installation
+fi
+if command_exists dialog ; then
+dialog --backtitle "Adaclare Technologies" --inputbox \
+"Enter the password for mysql please(It is usually nothing)" 0 0 2> /tmp/inputbox.tmp.$$
+PASS=`cat /tmp/inputbox.tmp.$$`
+rm -f /tmp/inputbox.tmp.$$
+
+else 
+echo -e "\nEnter the password for mysql please(It is usually nothing):"
+
+read PASS;
+fi
+
+installer () {
+    if command_exists dialog ; then
+MESSAGE=$1
+PRESENT=$2
+E="o"
+(
+    items=100
+    processed=0
+    while [ $processed -le $items ]; do
+        pct=$(( $processed * 100 / $items ))
+        echo "XXX"
+        echo "Welcome to Adaclare Webister\nThis is now installing Webister, You are done for right now. We will tell you if we need you again.\n\n$MESSAGE"
+        echo "XXX"
+        echo "$pct"
+      
+        if [ $E = "o" ]; then
+        processed=$((processed+$2))
+        E="x"
+        else 
+        processed=$((processed+100-$2))
+        fi
+        sleep 0.5
+    done
+) |  dialog --clear --title "Webister Installer $VERSION" --backtitle "Adaclare Technologies" --keep-tite --no-ok --no-cancel --no-kill --gauge "Welcome to Adaclare Webister\nThis is now installing Webister, You are done for right now. We will tell you if we need you again." 10 60 0
+fi
+    
+}
+
+progressbar 1 20
+installer "Creating Database" 5
+BLAH=$(mysql -u root -p"$PASS" -e "CREATE DATABASE webister;") & spinner
+progressbar 2 20
+installer "Creating System User" 10
+BLAH=$(id -u webister &>/dev/null || useradd webister) & spinner
+progressbar 3 20
+installer "Creating Directory" 15
+BLAH=$(mkdir -p /var/webister) & spinner
+progressbar 4 20
+installer "Copying Interface" 20
+BLAH=$(cp -r interface /var/webister/interface) & spinner
+progressbar 5 20
+installer "Creating Service" 25
+BLAH=$(cp files/service /etc/init.d/webister) & spinner
+progressbar 6 20
+installer "Generating Password" 30
+BLAH=$(cp files/grabpass.php /etc/init.d/grabpass.php) & spinner
+progressbar 7 20
+installer "Changing Permissions" 35
+BLAH=$(chmod +x /etc/init.d/webister) & spinner
+progressbar 8 20
+installer "Creating Database" 50
+BLAH=$(service mysql start) & spinner
+progressbar 9 20
+installer "Changing Permissions" 70
+BLAH=$(sudo adduser webister sudo) & spinner
+progressbar 10 20
+BLAH=$(usermod -aG sudo  webister) & spinner
+progressbar 11 20
+installer "Changing Permissions" 75
+BLAH=$(cp -R website /var/webister/80) & spinner
+progressbar 15 20
+installer "Copy Files" 90
+BLAH=$(chmod -R 777 /var/webister/80/) & spinner
+BLAH=$(sudo pip install pyftpdlib) & spinner
+BLAH=$(sudo cp files/ftpserv.py /var/webister/) & spinner
+progressbar 17 20
+installer "Changing Permissions" 95
+BLAH=$(php install.php $PASS) & spinner
+progressbar 19 20
+installer "Installing Database" 99
+if /etc/init.d/webister start; then
+    echo ""
+else
+    echo "Service: Exit code of $?, failure!!"
+    exit 1
+fi
+progressbar 20 20
+
+echo -e "\nThe installation is now complete."
+echo -e "###############################################################################"
+
+echo "Your system has installed Webister $VERSION"
+echo "The system has detected which has been installed (This may not be correct)"
+check () {
+   if [ -n "$(command -v "$1")" ]; then
+echo -e "$1: OK"
+else
+echo -e "$1: Not Installed, you may have issues."
+fi
+}
+check php
+check mysql
+check telnet
+echo "The default username and password is admin"
+echo "Visit the control panel at port 8081."
+echo -e "###############################################################################"
+echo -e "###############################################################################"

@@ -8,7 +8,7 @@ if (isset($_POST["fileToUpload"])) {
 
 ?>
 <h1>Update to New Version</h1>
-<p>You can find some patches over <a href="http://www.adaclare.com:8080/job/Webister%20Development/job/webister/job/master/">Here</a>. You will need to get the url of patch.deb. Once you get the url paste it below and wait for it to apply.</p>
+<p>You can find some patches over <a href="https://circleci.com/gh/alwaysontop617/webister/tree/master">Here</a>. You will need to get the url of patch.deb. Once you get the url paste it below and wait for it to apply.</p>
 <form action="#" method="post" enctype="multipart/form-data">
     Enter url to patch:
     <input type="text" name="fileToUpload" id="fileToUpload">

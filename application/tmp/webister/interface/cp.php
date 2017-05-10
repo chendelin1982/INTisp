@@ -173,6 +173,7 @@ $(document).ready(function(){
   <li class="list-group-item">  
 
                                   <a type="button" href="settings.php" class="sys btn btn-default"><i class="fa fa-5x fa-sliders"></i><hr>Settings</a>
+                                  <a type="button" href="update.php" class="sys btn btn-default"><i class="fa fa-5x fa-upload"></i><hr>Update</a>
                                   <a type="button" href="plug.php" class="sys btn btn-default"><i class="fa fa-5x fa-puzzle-piece"></i><hr>Plugins</a>
                                         <a type="button" href="terminal.php" class="sys btn btn-default"><i class="fa fa-5x fa-terminal"></i><hr>Terminal</a>
                                         
