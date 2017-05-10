@@ -1,0 +1,112 @@
+--- application/tmp/webister/interface/newserv.php
++++ PHP_CodeSniffer
+@@ -9,20 +9,20 @@
+         $returnval = $returnval.'<br>Creating User'.$username;
+         include 'config.php';
+         
+-$con = mysqli_connect($host, $user, $pass, $data);
+-$sql = 'SELECT * FROM Users';
+-$result = mysqli_query($con, $sql);
+- while ($row = mysqli_fetch_row($result)) {
+-     if ($username == $row[1]) {
+-         die("Error Username is not Unique");
+-     }
+-     if ($port == $row[5]) {
+-         die("Port number is not unique");
+-     }
+- }
++        $con = mysqli_connect($host, $user, $pass, $data);
++        $sql = 'SELECT * FROM Users';
++        $result = mysqli_query($con, $sql);
++        while ($row = mysqli_fetch_row($result)) {
++            if ($username == $row[1]) {
++                die("Error Username is not Unique");
++            }
++            if ($port == $row[5]) {
++                die("Port number is not unique");
++            }
++        }
+  
+-   mysqli_free_result($result);
+-    mysqli_close($con);
++        mysqli_free_result($result);
++        mysqli_close($con);
+     
+         $conn = mysqli_connect("$host", "$user", "$pass", 'webister');
+ 
+@@ -85,26 +85,26 @@
+         shell_exec("cd /var/webister/" . $port . "/ && sudo nohup php -S 0.0.0.0:" . $port. " > exhibitor.out 2>&1 &");
+     
+ 
+-/*
+- * Adaclare Technologies
+- *
+- * Webister Hosting Software
+- *
+- *
+- */
+- $mysqli = new mysqli();
+-    $con = mysqli_connect("$host", "$user", "$pass", "$data"); 
+-    $sql = "SELECT * \n"
+-    ."FROM `Users`";
++        /*
++        * Adaclare Technologies
++        *
++        * Webister Hosting Software
++        *
++        *
++        */
++        $mysqli = new mysqli();
++        $con = mysqli_connect("$host", "$user", "$pass", "$data"); 
++        $sql = "SELECT * \n"
++        ."FROM `Users`";
+ 
+ 
+-$file = "from pyftpdlib.authorizers import DummyAuthorizer
++        $file = "from pyftpdlib.authorizers import DummyAuthorizer
+ from pyftpdlib.handlers import FTPHandler
+ from pyftpdlib.servers import FTPServer
+ authorizer = DummyAuthorizer()
+ ";
+ 
+-$file_end = 'handler = FTPHandler
++        $file_end = 'handler = FTPHandler
+ handler.banner = "Webister By Adaclare"
+ handler.authorizer = authorizer
+ server = FTPServer(("0.0.0.0", 21), handler)
+@@ -112,22 +112,22 @@
+ server.serve_forever()';
+ 
+ 
+-$u = "";
++        $u = "";
+ 
+-if ($result = mysqli_query($con, $sql)) {
+-    // Fetch one and one row
+-    while ($row = mysqli_fetch_row($result)) {
+-        if (!file_exists("/var/webister/" . $row[5])) {
+-            echo "Creating Port File " . $row[5];
+-            mkdir("/var/webister/" . $row[5]);
+-        }
+-$u = $u . 'authorizer.add_user("' . $row[1] . '", "' . $row[2] . '", "/var/webister/' . $row[5] . '", perm="elradfmw")
++        if ($result = mysqli_query($con, $sql)) {
++            // Fetch one and one row
++            while ($row = mysqli_fetch_row($result)) {
++                if (!file_exists("/var/webister/" . $row[5])) {
++                    echo "Creating Port File " . $row[5];
++                    mkdir("/var/webister/" . $row[5]);
++                }
++                $u = $u . 'authorizer.add_user("' . $row[1] . '", "' . $row[2] . '", "/var/webister/' . $row[5] . '", perm="elradfmw")
+ 
+ ';
+-    }
+-}
+-$fttl = $file . $u . $file_end;
+-file_put_contents("/var/webister/ftpserv.py",$fttl);
++            }
++        }
++        $fttl = $file . $u . $file_end;
++        file_put_contents("/var/webister/ftpserv.py", $fttl);
+ 
+         shell_exec("python /var/webister/ftpserv.py > exhibitor.out 2>&1 &");
+         $returnval = $returnval.'<br>Done! Please restart webister';

@@ -67,7 +67,7 @@ echo "__  /| |_  __  / _  __  /_  /     __  /  __  /| |__  /_/ /__  __/   "
 echo "_  ___ |/ /_/ /  / /_/ / / /___   _  /____  ___ |_  _  _/ _  /___   "
 echo "/_/  |_| __ _/    __ _/   ____/   /_____//_/  |_|/_/ |_|  /_____/   "
 preparebar 50 "#"
-echo "You are installing tecflare webister version $VERSION"
+echo "You are installing adaclare webister version $VERSION"
 echo "Validating Random Website Test..."
 # Feel Free to add your website below
 

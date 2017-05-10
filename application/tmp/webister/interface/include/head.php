@@ -2,7 +2,6 @@
 error_reporting(0);
 session_start();
 include 'config.php';
-
 function onlyadmin () {
      if ($_SESSION['user'] == 'admin') {
          
@@ -14,6 +13,7 @@ if (!isset($_SESSION['user'])) {
     header('Location: index.php?page=main');
     die();
 }
+
      function Connect($port)
      {
          $serverConn = @stream_socket_client("tcp://127.0.0.1:$port", $errno, $errstr);
@@ -138,18 +138,16 @@ mysqli_close($con);
           <ul class="nav navbar-nav">
                <li><a><span class="badge">build # <?php echo file_get_contents("data/version"); ?></span></a></li>
                <li><a><span class="badge"><?php echo php_uname("s"); ?> <?php echo php_uname("r"); ?>.<?php echo php_uname("m"); ?></span></a></li>
-           <li>
-                <p class="navbar-btn">
-                    <a href="<?php echo file_get_contents("data/upbutton"); ?>" class="btn btn-warning fa fa-arrow-up"> Upgrade</a>
-                </p>
+                    <li><a href="<?php echo file_get_contents("data/upbutton"); ?>" class="fa fa-arrow-up"> Upgrade</a>
+           
            </li>
               </ul>
            
           
-      <ul class="nav navbar-nav navbar-right">
-          <li><a href="cp.php"><i class="fa fa-1x fa-home"></i></a></li>
-         <li><a href="FileManager.php"><i class="fa fa-1x fa-file"></i></a></li>
-         <li><a href="adminer-4.2.4.php?server=localhost"><i class="fa fa-1x fa-database"></i></a></li>
+      <ul style="background-color:#42f4a7;color:black;" class="nav navbar-nav navbar-right">
+          <li><a href="cp.php"><i style="color:white" class="fa fa-1x fa-home"></i></a></li>
+         <li><a href="FileManager.php"><i style="color:white" class="fa fa-1x fa-file"></i></a></li>
+         <li><a href="adminer-4.2.4.php?server=localhost"><i style="color:white" class="fa fa-1x fa-database"></i></a></li>
          <?php
 			  function isSSL()
     {
@@ -161,16 +159,16 @@ mysqli_close($con);
     }
 			if (!isSSL()) {
 				?>
-				<li><A><i style="color:red" class="fa fa-1x fa-unlock"></i></A></li>
+				<li><A><i  style="color:white" class="fa fa-1x fa-unlock"></i></A></li>
 				<?php
 			} else {
 			?>
-				<li><A><i style="color:green" class="fa fa-1x fa-lock"></i></A></li>
+				<li><A><i style="color:white" class="fa fa-1x fa-lock"></i></A></li>
 			<?php
 			}
 			?>
-      <li><a href="" data-toggle="modal" data-target="#myModal"><i class="fa fa-1x fa-user"></i></a></li>
-      <li><a href="logout.php"><i class="fa fa-1x fa fa-sign-out"></i></a></li>
+      <li><a href="" data-toggle="modal" data-target="#myModal"><i style="color:white" class="fa fa-1x fa-user"></i></a></li>
+      <li><a href="logout.php"><i style="color:white" class="fa fa-1x fa fa-sign-out"></i></a></li>
             </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -1,0 +1,34 @@
+--- application/tmp/webister/interface/api.php
++++ PHP_CodeSniffer
+@@ -104,19 +104,19 @@
+             mkdir('/var/webister/'.$port);
+             include 'config.php';
+             $con = mysqli_connect($host, $user, $pass, $data);
+-$sql = 'SELECT * FROM Users';
+-$result = mysqli_query($con, $sql);
+- while ($row = mysqli_fetch_row($result)) {
+-     if ($username == $row[1]) {
+-         die("Error Username is not Unique");
+-     }
+-     if ($port == $row[5]) {
+-         die("Port number is not unique");
+-     }
+- }
++            $sql = 'SELECT * FROM Users';
++            $result = mysqli_query($con, $sql);
++            while ($row = mysqli_fetch_row($result)) {
++                if ($username == $row[1]) {
++                    die("Error Username is not Unique");
++                }
++                if ($port == $row[5]) {
++                    die("Port number is not unique");
++                }
++            }
+  
+-   mysqli_free_result($result);
+-    mysqli_close($con);
++            mysqli_free_result($result);
++            mysqli_close($con);
+             $conn = mysqli_connect("$host", "$user", "$pass", 'webister');
+ 
+             $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port)

@@ -1,6 +1,11 @@
 <?php require 'include/head.php';
 ?>
-
+<style>
+  .btn {
+    border-style: none;
+  }
+  
+</style>
             <?php if ($_SESSION['user'] == 'admin') {
     ?>
 
@@ -27,6 +32,78 @@
   
 </div>  
 <div>
+     <script>
+$(document).ready(function(){
+  $("#baashow").hide();
+    $("#baahide").click(function(){
+        $(".aasvr").hide();
+        $("#baahide").hide();
+        $("#baashow").show();
+    });
+    $("#baashow").click(function(){
+        $(".aasvr").show();
+        $("#baahide").show();
+        $("#baashow").hide();
+    });
+});
+</script>
+<ul class="list-group">
+  <li class="list-group-item"><a id="baahide"><i class="fa fa-list" aria-hidden="true"></i></a><a id="baashow"><i class="fa fa-list" aria-hidden="true"></i></a> | Status</li>
+  <li class="list-group-item">  
+                                          <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;"><?php
+    $count = 0;
+$con = mysqli_connect($host, $user, $pass, $data);
+$sql = 'SELECT * FROM Users';
+$result = mysqli_query($con, $sql);
+ while ($row = mysqli_fetch_row($result)) {
+     $count = $count + 1;
+ }
+   mysqli_free_result($result);
+    mysqli_close($con);
+    echo $count;
+    ?></h1><hr> Users</a>
+                                          <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;"><?php
+    $count = 0;
+$con = mysqli_connect($host, $user, $pass, $data);
+$sql = 'SELECT * FROM FailedLogin';
+$result = mysqli_query($con, $sql);
+ while ($row = mysqli_fetch_row($result)) {
+     $count = $count + 1;
+ }
+   mysqli_free_result($result);
+    mysqli_close($con);
+    echo $count;
+    ?></h1><hr> Failed Logins</a>
+                                                                                <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;"><?php
+    $count = 0;
+$con = mysqli_connect($host, $user, $pass, $data);
+$sql = 'SELECT * FROM Users';
+$result = mysqli_query($con, $sql);
+ while ($row = mysqli_fetch_row($result)) {
+     $count = $count + 1;
+ }
+   mysqli_free_result($result);
+    mysqli_close($con);
+    echo $count;
+    ?></h1><hr> Servers</a>
+                                                                                                                        <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;">
+                                                                                                                          <?php
+                                                                                                                          $count = 0;
+                                                                                                                          $scan = scandir("plugins");
+                                                                                                                          foreach ($scan as $file) {
+                                                                                                                            $count = $count +1;
+                                                                                                                          }
+                                                                                                                          $count = $count - 2;
+                                                                                                                          echo $count;
+                                                                                                                          ?>
+                                                                                                                          
+                                                                                                                        </h1><hr> Plugins</a>
+                                          <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;"><?php echo file_get_contents("data/version"); ?></h1><hr> Version</a>
+                                        
+                                        
+  
+                                     </li>
+  </ul>  
     <script>
 $(document).ready(function(){
   $("#cshow").hide();
@@ -73,6 +150,7 @@ $(document).ready(function(){
                                         <a type="button" href="index.php?page=list#" class="svr btn btn-default"><i class="fa fa-5x fa-user"></i><hr>Users</a>
                                         <a type="button" href="plans.php" class="svr btn btn-default"><i class="fa fa-5x fa-columns" aria-hidden="true"></i><hr>Plans</a>
                                         <a type="button" href="adminer-4.2.4.php?server=localhost&username=<?php echo urlencode($user); ?>&password=<?php echo urlencode($pass); ?>" class="svr btn btn-default"><i class="fa fa-5x fa-database" aria-hidden="true"></i><hr> All Database</a>
+
                                          </li>
   </ul>
   <script>
