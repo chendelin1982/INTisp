@@ -1,1 +1,4 @@
+We fixed the updater, added FTP, and hope for more releases to come. We plan on improving security and more. We also fixed the service, so webister now works on newer releases of ubuntu. We will also plan to release for Centos and maybe Windows. You can try using our discontinued windows version of webister
+
+
 News will be displayed here for more information. We plan that Webister will have a lot of new features and even more products. We will be adding a firewall soon. This will allow users to ban ip of people who try and get into the control panel but have to many failed login attempts. We hope to integrate this soon in the near future. We also plan on renaming the control panel but we are not 100% sure yet.

@@ -46,6 +46,11 @@
     <input type="text" class="form-control" name="support" id="formGroupExampleInput" value="<?php echo file_get_contents('data/support'); ?>">
   </fieldset>
   
+   <fieldset class="form-group">
+    <label for="formGroupExampleInput">Navbar color</label>
+    <input type="text" class="form-control" name="navbar" id="formGroupExampleInput" value="<?php echo file_get_contents('data/color'); ?>">
+  </fieldset>
+  
     <fieldset class="form-group">
     <label for="formGroupExampleInput">Upgrade Button Link</label>
     <input type="text" class="form-control" name="upgrade" id="formGroupExampleInput" value="<?php echo file_get_contents('data/upbutton'); ?>">

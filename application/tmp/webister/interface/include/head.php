@@ -107,7 +107,7 @@ $result = mysqli_query($con, $sql);
    <div id="cpanel">
         <div id="border-efx">
         <!--Handheld heading-->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav style="background-color:#<?php echo file_get_contents("data/color"); ?>;" class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
