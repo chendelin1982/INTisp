@@ -8,7 +8,7 @@ Webister is a hosting control panel that is designed to be light and fast. It us
 
  PHP 49.2%	 JavaScript 33.4%	 CSS 16.0%	 Other 1.4%
 
-[![Build Status](http://www.adaclare.com:8080/job/Webister%20Development/job/webister/job/master/badge/icon)](http://www.adaclare.com:8080/job/Webister%20Development/job/webister/job/master/)
+[![CircleCI](https://circleci.com/gh/alwaysontop617/webister/tree/master.svg?style=svg)](https://circleci.com/gh/alwaysontop617/webister/tree/master)
 
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2051a2b233d4ed8b884b9ad028052ce)](https://www.codacy.com/app/alwaysontop617/webister?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=alwaysontop617/webister&amp;utm_campaign=Badge_Grade)
