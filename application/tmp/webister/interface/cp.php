@@ -176,7 +176,8 @@ $(document).ready(function(){
                                   <a type="button" href="update.php" class="sys btn btn-default"><i class="fa fa-5x fa-upload"></i><hr>Update</a>
                                   <a type="button" href="plug.php" class="sys btn btn-default"><i class="fa fa-5x fa-puzzle-piece"></i><hr>Plugins</a>
                                         <a type="button" href="terminal.php" class="sys btn btn-default"><i class="fa fa-5x fa-terminal"></i><hr>Terminal</a>
-                                        
+                                                                                <a type="button" href="mail.php" class="sys btn btn-default"><i class="fa fa-5x fa-envelope-o"></i><hr>Messages</a>
+                                      
                                         <a type="button" href="http://adaclare.com/errtrck/bug_report_page.php" class="sys btn btn-default"><i class="fa fa-5x fa-life-ring"></i><hr>Bugs</a>
                                         <a type="button" class="sys btn btn-large btn-success" href="javascript:void(0);" onclick="javascript:introJs().start();" class="btn btn-default"><i class="fa fa-5x fa-question-circle"></i><hr>Tour</a>
                                        <?php

@@ -148,6 +148,23 @@ mysqli_close($con);
           <li><a href="cp.php"><i style="color:white" class="fa fa-1x fa-home"></i></a></li>
          <li><a href="FileManager.php"><i style="color:white" class="fa fa-1x fa-file"></i></a></li>
          <li><a href="adminer-4.2.4.php?server=localhost"><i style="color:white" class="fa fa-1x fa-database"></i></a></li>
+         <li><a href="mail.php"><span class="badge">
+             <?php
+    $count = 0;
+$con = mysqli_connect($host, $user, $pass, $data);
+$sql = 'SELECT * FROM Mail';
+$result = mysqli_query($con, $sql);
+ while ($row = mysqli_fetch_row($result)) {
+     $count = $count + 1;
+ }
+   mysqli_free_result($result);
+    mysqli_close($con);
+    echo $count;
+    ?>
+             
+             
+      
+         </span></a></li>
          <?php
 			  function isSSL()
     {

@@ -9,6 +9,7 @@
  */
 
 require 'config.php';
+require 'include/mail.php';
 //die('update Administrators set username="' .addslashes($_POST["username"]) .'", password="' . md5(addslashes($_POST["password_ch"])) .'" where username=' . $_POST["username"]);
     $con = mysqli_connect($host, $user, $pass, $data);
     $sql = 'update Settings set id="1", value="'.$_POST['title'].'",code="title" where id="1"';
@@ -23,4 +24,9 @@ require 'config.php';
     file_put_contents('data/theme', $_POST['theme']);
     file_put_contents('data/color', $_POST['navbar']);
     file_put_contents('data/upbutton', $_POST['upgrade']);
+        file_put_contents('data/mail', $_POST['mail']);
+    sendemailuser("Settings Changed","
+    <b>Settings have been changed on the Webister Hosting Control Panel</b>
+    <p>This email is automatically sent out everytime a setting is changed. To disable this feature please visit the control panel and set the email to nothing.
+    ");
     header('Location: index.php?page=cp#');

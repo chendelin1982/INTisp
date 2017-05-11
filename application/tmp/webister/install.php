@@ -44,8 +44,17 @@ ip TEXT,
 time TEXT
 )';
 $conn->query($sql);
+ $sql = 'CREATE TABLE Mail (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+subject TEXT,
+message TEXT
+)';
+$conn->query($sql);
 
 $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('2', 'admin', '".sha1('admin')."', '', '', '80')";
+$conn->query($sql);
+$sql = "INSERT INTO Mail (id, subject, message) VALUES ('1','Welcome To Webister','<b>We are glad that you decided to choose Webister.</b> <p>We hope you enjoy our awesome control panel. You will get messages/emails once you place your email address in the settings.</p><p>
+If you feel that there are some issues or you need fix your Webister, please remember to try updating it first. You can update this in our main control panel.</p>')";
 $conn->query($sql);
 $sql = "INSERT INTO Settings (id, code, value) VALUES ('1', 'title', 'My Web Host')";
 $conn->query($sql);

@@ -55,6 +55,12 @@
     <label for="formGroupExampleInput">Upgrade Button Link</label>
     <input type="text" class="form-control" name="upgrade" id="formGroupExampleInput" value="<?php echo file_get_contents('data/upbutton'); ?>">
   </fieldset>
+    
+    <fieldset class="form-group">
+    <label for="formGroupExampleInput">System Email</label>
+    <input type="text" class="form-control" name="mail" id="formGroupExampleInput" value="<?php echo file_get_contents('data/mail'); ?>">
+  </fieldset>
+  
   
   <fieldset class="form-group">
     <label for="sel1">Select theme (select one):</label>
