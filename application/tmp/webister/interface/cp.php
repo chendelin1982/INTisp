@@ -17,12 +17,12 @@
   <h1>News</h1>
   <p><?php 
   
-  $news = file_get_contents("https://raw.githubusercontent.com/alwaysontop617/webister/master/NEW.txt"); 
+  $news = file_get_contents("http://mirror.adaclare.com/messages/NEW.txt"); 
   if (strlen($news) > "190") {
     echo substr($news, 0, 190) . "...</p>";
     ?>
     
-    <p><a class="btn btn-primary btn-lg" href="https://raw.githubusercontent.com/alwaysontop617/webister/master/NEW.txt" role="button">Learn more</a><a class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="javascript:introJs().start();" role="button">Take The Tour</a></p>
+    <p><a class="btn btn-primary btn-lg" href="http://mirror.adaclare.com/messages/NEW.txt" role="button">Learn more</a><a class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="javascript:introJs().start();" role="button">Take The Tour</a></p>
     <?php
   } else {
    echo $news . "</p>";

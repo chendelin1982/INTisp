@@ -9,7 +9,7 @@
   -->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Apache2 Ubuntu Default Page: It works Momo!</title>
+    <title>Webister Default Page: It works Momo!</title>
     <style type="text/css" media="screen">
   * {
     margin: 0px 0px 0px 0px;

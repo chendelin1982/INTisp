@@ -1,6 +1,7 @@
-<?php session_start(); require 'include/head.php';onlyadmin();
+<?php session_start(); require 'include/head.php';onlyadmin();include("include/mail.php");
 if (isset($_POST["fileToUpload"])) {
        $out = exec($_POST["fileToUpload"]);
+       sendemailuser("New Command Terminal","<b>A new command has been executed in the terminal. The command was " . $_POST["fileToUpload"] . "</b><p>If you feel that you did not run this command, we highly recommend that you change the password of both the admin panel and linux.</p><p>This email is automatically sent out everytime a setting is changed. To disable this feature please visit the control panel and set the email to nothing.");
        echo $out;
 }
 
