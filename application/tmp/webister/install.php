@@ -50,6 +50,13 @@ subject TEXT,
 message TEXT
 )';
 $conn->query($sql);
+ $sql = 'CREATE TABLE Cloudflare (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+username TEXT,
+email TEXT,
+password TEXT
+)';
+$conn->query($sql);
 
 $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('2', 'admin', '".sha1('admin')."', '', '', '80')";
 $conn->query($sql);

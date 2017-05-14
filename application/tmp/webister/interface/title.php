@@ -23,6 +23,7 @@ require 'include/mail.php';
     file_put_contents('data/loginfoot', $_POST['loginf']);
     file_put_contents('data/theme', $_POST['theme']);
     file_put_contents('data/color', $_POST['navbar']);
+    file_put_contents('data/cloudflare', $_POST['cloudflare']);
     file_put_contents('data/upbutton', $_POST['upgrade']);
         file_put_contents('data/mail', $_POST['mail']);
     sendemailuser("Settings Changed","

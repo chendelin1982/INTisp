@@ -60,6 +60,10 @@
     <label for="formGroupExampleInput">System Email</label>
     <input type="text" class="form-control" name="mail" id="formGroupExampleInput" value="<?php echo file_get_contents('data/mail'); ?>">
   </fieldset>
+    <fieldset class="form-group">
+    <label for="formGroupExampleInput">Cloudflare API Key</label>
+    <input type="text" class="form-control" name="cloudflare" id="formGroupExampleInput" value="<?php echo file_get_contents('data/cloudflare'); ?>">
+  </fieldset>
   
   
   <fieldset class="form-group">
