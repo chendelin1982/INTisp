@@ -1,15 +1,15 @@
 <?php session_start(); require 'include/head.php'; 
-require ("include/cloudflare.php");
-require ("include/mail.php");
+require "include/cloudflare.php";
+require "include/mail.php";
 if (isset($_POST["email"])) {
-    $uniqueid = rand(1,10000);
+    $uniqueid = rand(1, 10000);
     $usernameit = $uniqueid . $_SESSION['user'];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $cf = new cloudflare_api(file_get_contents("data/cloudflare"));
-$response = $cf->user_create($email, $password, $usernameit, $uniqueid);
-sendemailuser("New Cloudflare","A new cloudflare account has been created!!<br>Username: " . $usernameit . "<br>Password:" . $password . "<br>Email: " . $email . "<br>Unique Id: " . $uniqueid . "<br><p>Thank You for using the Cloudflare API</p>");
-$mysqli = new mysqli();
+    $response = $cf->user_create($email, $password, $usernameit, $uniqueid);
+    sendemailuser("New Cloudflare", "A new cloudflare account has been created!!<br>Username: " . $usernameit . "<br>Password:" . $password . "<br>Email: " . $email . "<br>Unique Id: " . $uniqueid . "<br><p>Thank You for using the Cloudflare API</p>");
+    $mysqli = new mysqli();
         $conn = mysqli_connect("$host", "$user", "$pass", "$data"); 
          $sql = "INSERT INTO Cloudflare (id, username, email, password)
 VALUES ('" .$uniqueid ."','" .$_SESSION['user'] . "','" .$email ."','" . $password."')";

@@ -11,11 +11,11 @@ echo file_get_contents('data/loginhead');
 <!doctype html>
 <html>
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <title>Webister</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <style>
 body {
   background: #e9e9e9;
@@ -460,8 +460,8 @@ input {
 </head>
 <body>
 <div class="container">
-	<div class="row">
-		
+    <div class="row">
+        
 <!-- Mixins-->
 <!-- Pen Title-->
 <div class="pen-title">

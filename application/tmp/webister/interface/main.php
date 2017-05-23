@@ -475,11 +475,11 @@ input {
       <div class="button-container">
         <button><span>Go</span></button>
       </div>
-      	<?php
-			if (isset($_GET["error"])) {
-				echo "<div class='footer'>Wrong Username or Password!</div>";
-			}
-			?>
+        <?php
+        if (isset($_GET["error"])) {
+              echo "<div class='footer'>Wrong Username or Password!</div>";
+        }
+    ?>
 
     </form>
   </div>

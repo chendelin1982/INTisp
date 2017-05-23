@@ -26,8 +26,10 @@ require 'include/mail.php';
     file_put_contents('data/cloudflare', $_POST['cloudflare']);
     file_put_contents('data/upbutton', $_POST['upgrade']);
         file_put_contents('data/mail', $_POST['mail']);
-    sendemailuser("Settings Changed","
+    sendemailuser(
+        "Settings Changed", "
     <b>Settings have been changed on the Webister Hosting Control Panel</b>
     <p>This email is automatically sent out everytime a setting is changed. To disable this feature please visit the control panel and set the email to nothing.
-    ");
+    "
+    );
     header('Location: index.php?page=cp#');

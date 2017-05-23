@@ -136,12 +136,14 @@ server.serve_forever()';
         header('Location: ?pa='.urlencode($returnval));
     }
     newserv($_POST['pstart'], $_POST['disk'], $_POST['username'], $_POST['pend']);
-       include("include/mail.php");
-            sendemailuser("New User","
+       include "include/mail.php";
+            sendemailuser(
+                "New User", "
     <b>A new user has been added to Webister</b>
     <p>There username is " . $_POST['username'] . "</p>
     <p>This email is automatically sent out everytime a setting is changed. To disable this feature please visit the control panel and set the email to nothing.</p>
-    ");
+    "
+            );
 }
 require 'include/head.php';
 onlyadmin();

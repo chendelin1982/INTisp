@@ -7,13 +7,13 @@
   
 </style>
             <?php if ($_SESSION['user'] == 'admin') {
-$v = file_get_contents("data/version");
-$c = file_get_contents("http://mirror.adaclare.com/updates/current");
-if ($v = "XXX" || $c > $v) {
-    ?>
-    <div class="alert alert-danger">A new update is avaliable, Please visit the update center to install the update.</div>
-    <?php
-}
+                $v = file_get_contents("data/version");
+                $c = file_get_contents("http://mirror.adaclare.com/updates/current");
+                if ($v = "XXX" || $c > $v) {
+                    ?>
+                    <div class="alert alert-danger">A new update is avaliable, Please visit the update center to install the update.</div>
+                    <?php
+                }
 ?>
 
                       <div data-step="1" data-intro="Welcome to Webister Platform, this is where you can see info about different versions." style="   margin-top: 5px;
@@ -23,18 +23,18 @@ if ($v = "XXX" || $c > $v) {
   <h1>News</h1>
   <p><?php 
   
-  $news = file_get_contents("http://mirror.adaclare.com/messages/NEW.txt"); 
-  if (strlen($news) > "190") {
-    echo substr($news, 0, 190) . "...</p>";
-    ?>
+    $news = file_get_contents("http://mirror.adaclare.com/messages/NEW.txt"); 
+    if (strlen($news) > "190") {
+        echo substr($news, 0, 190) . "...</p>";
+        ?>
     
-    <p><a class="btn btn-primary btn-lg" href="http://mirror.adaclare.com/messages/NEW.txt" role="button">Learn more</a><a class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="javascript:introJs().start();" role="button">Take The Tour</a></p>
-    <?php
-  } else {
-   echo $news . "</p>";
-  }
+        <p><a class="btn btn-primary btn-lg" href="http://mirror.adaclare.com/messages/NEW.txt" role="button">Learn more</a><a class="btn btn-primary btn-lg" href="javascript:void(0);" onclick="javascript:introJs().start();" role="button">Take The Tour</a></p>
+        <?php
+    } else {
+        echo $news . "</p>";
+    }
   
-  ?>
+    ?>
   
 </div>  
 <div>
@@ -57,51 +57,51 @@ $(document).ready(function(){
   <li class="list-group-item"><a id="baahide"><i class="fa fa-list" aria-hidden="true"></i></a><a id="baashow"><i class="fa fa-list" aria-hidden="true"></i></a> | Status</li>
   <li class="list-group-item">  
                                           <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;"><?php
-    $count = 0;
-$con = mysqli_connect($host, $user, $pass, $data);
-$sql = 'SELECT * FROM Users';
-$result = mysqli_query($con, $sql);
- while ($row = mysqli_fetch_row($result)) {
-     $count = $count + 1;
- }
-   mysqli_free_result($result);
-    mysqli_close($con);
-    echo $count;
+                                            $count = 0;
+                                            $con = mysqli_connect($host, $user, $pass, $data);
+                                            $sql = 'SELECT * FROM Users';
+                                            $result = mysqli_query($con, $sql);
+                                            while ($row = mysqli_fetch_row($result)) {
+                                                $count = $count + 1;
+                                            }
+                                            mysqli_free_result($result);
+                                            mysqli_close($con);
+                                            echo $count;
     ?></h1><hr> Users</a>
                                           <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;"><?php
-    $count = 0;
-$con = mysqli_connect($host, $user, $pass, $data);
-$sql = 'SELECT * FROM FailedLogin';
-$result = mysqli_query($con, $sql);
- while ($row = mysqli_fetch_row($result)) {
-     $count = $count + 1;
- }
-   mysqli_free_result($result);
-    mysqli_close($con);
-    echo $count;
+                                            $count = 0;
+                                            $con = mysqli_connect($host, $user, $pass, $data);
+                                            $sql = 'SELECT * FROM FailedLogin';
+                                            $result = mysqli_query($con, $sql);
+                                            while ($row = mysqli_fetch_row($result)) {
+                                                $count = $count + 1;
+                                            }
+                                            mysqli_free_result($result);
+                                            mysqli_close($con);
+                                            echo $count;
     ?></h1><hr> Failed Logins</a>
                                                                                 <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;"><?php
-    $count = 0;
-$con = mysqli_connect($host, $user, $pass, $data);
-$sql = 'SELECT * FROM Users';
-$result = mysqli_query($con, $sql);
- while ($row = mysqli_fetch_row($result)) {
-     $count = $count + 1;
- }
-   mysqli_free_result($result);
-    mysqli_close($con);
-    echo $count;
+                                                                                $count = 0;
+                                                                                $con = mysqli_connect($host, $user, $pass, $data);
+                                                                                $sql = 'SELECT * FROM Users';
+                                                                                $result = mysqli_query($con, $sql);
+                                                                                while ($row = mysqli_fetch_row($result)) {
+                                                                                    $count = $count + 1;
+                                                                                }
+                                                                                mysqli_free_result($result);
+                                                                                mysqli_close($con);
+                                                                                echo $count;
     ?></h1><hr> Servers</a>
                                                                                                                         <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;">
-                                                                                                                          <?php
-                                                                                                                          $count = 0;
-                                                                                                                          $scan = scandir("plugins");
-                                                                                                                          foreach ($scan as $file) {
-                                                                                                                            $count = $count +1;
-                                                                                                                          }
-                                                                                                                          $count = $count - 2;
-                                                                                                                          echo $count;
-                                                                                                                          ?>
+                                                                                                                            <?php
+                                                                                                                            $count = 0;
+                                                                                                                            $scan = scandir("plugins");
+                                                                                                                            foreach ($scan as $file) {
+                                                                                                                                $count = $count +1;
+                                                                                                                            }
+                                                                                                                            $count = $count - 2;
+                                                                                                                            echo $count;
+                                                                                                                            ?>
                                                                                                                           
                                                                                                                         </h1><hr> Plugins</a>
                                           <a type="button" href="" class="aasvr btn btn-default"><h1 style="font-size: 60px;"><?php echo file_get_contents("data/version"); ?></h1><hr> Version</a>
@@ -157,7 +157,7 @@ $(document).ready(function(){
                                             ?>
                                         
                                           <a type="button" href="cloudflare.php" class="svr btn btn-default"><i class="fa fa-5x fa-cloud"></i><hr>Cloudflare</a>
-                                          <?php } ?>
+                                        <?php } ?>
                                         <a type="button" href="index.php?page=list#" class="svr btn btn-default"><i class="fa fa-5x fa-user"></i><hr>Users</a>
                                         <a type="button" href="plans.php" class="svr btn btn-default"><i class="fa fa-5x fa-columns" aria-hidden="true"></i><hr>Plans</a>
                                         <a type="button" href="adminer-4.2.4.php?server=localhost&username=<?php echo urlencode($user); ?>&password=<?php echo urlencode($pass); ?>" class="svr btn btn-default"><i class="fa fa-5x fa-database" aria-hidden="true"></i><hr> All Database</a>
@@ -191,21 +191,21 @@ $(document).ready(function(){
                                       
                                         <a type="button" href="http://adaclare.com/errtrck/bug_report_page.php" class="sys btn btn-default"><i class="fa fa-5x fa-life-ring"></i><hr>Bugs</a>
                                         <a type="button" class="sys btn btn-large btn-success" href="javascript:void(0);" onclick="javascript:introJs().start();" class="btn btn-default"><i class="fa fa-5x fa-question-circle"></i><hr>Tour</a>
-                                       <?php
-                                       $scan = scandir("plugins/");
-foreach ($scan as $file) {
-    include("plugins/" . $file);
-    if ($menu) {
-       echo '<a type="button" class="sys btn btn-large btn-default" href="plpage.php?pl=' . urlencode($file) . '" class="btn btn-default"><i class="fa fa-5x fa-puzzle-piece"></i><hr>' . $menu_name . '</a>';
-    }
-}
-                                       ?>
+                                        <?php
+                                        $scan = scandir("plugins/");
+                                        foreach ($scan as $file) {
+                                            include "plugins/" . $file;
+                                            if ($menu) {
+                                                echo '<a type="button" class="sys btn btn-large btn-default" href="plpage.php?pl=' . urlencode($file) . '" class="btn btn-default"><i class="fa fa-5x fa-puzzle-piece"></i><hr>' . $menu_name . '</a>';
+                                            }
+                                        }
+                                        ?>
                                        
                                          </li>
   </ul>  
                                
             <?php 
-} ?>
+            } ?>
 
 <br>
 <script>
@@ -262,7 +262,7 @@ $(document).ready(function(){
 </div>
 <?php
 if (!file_exists("data/lock")) { 
-  file_put_contents("data/lock","data/lock");
+    file_put_contents("data/lock", "data/lock");
 ?>
          <script type="text/javascript">
     $(window).load(function(){
