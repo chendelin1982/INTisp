@@ -1,5 +1,6 @@
 <?php
 error_reporting(0);
+ini_set("session.cookie_lifetime","360");
 session_start();
 include 'config.php';
 function onlyadmin () {
