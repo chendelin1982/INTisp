@@ -1,5 +1,8 @@
 <?php require 'include/head.php';
 ?>
+
+      <?php if ($_SESSION['user'] == 'admin') {
+    ?>
 <style>
   .btn {
     border-style: none;
