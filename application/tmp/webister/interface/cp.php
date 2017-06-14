@@ -6,16 +6,7 @@
   }
   
 </style>
-            <?php if ($_SESSION['user'] == 'admin') {
-                $v = file_get_contents("data/version");
-                $c = file_get_contents("http://mirror.adaclare.com/updates/current");
-                if ($v = "XXX" || $c > $v) {
-                    ?>
-                    <div class="alert alert-danger">A new update is avaliable, Please visit the update center to install the update.</div>
-                    <?php
-                }
-?>
-
+ 
                       <div data-step="1" data-intro="Welcome to Webister Platform, this is where you can see info about different versions." style="   margin-top: 5px;
     margin-bottom: 5px;
     margin-right: 100px;
@@ -23,7 +14,7 @@
   <h1>News</h1>
   <p><?php 
   
-    $news = file_get_contents("http://mirror.adaclare.com/messages/NEW.txt"); 
+    $news = file_get_contents("http://adaclare.download/messages/NEW.txt"); 
     if (strlen($news) > "190") {
         echo substr($news, 0, 190) . "...</p>";
         ?>
