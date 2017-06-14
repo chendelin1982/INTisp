@@ -14,7 +14,7 @@
   <h1>News</h1>
   <p><?php 
   
-    $news = file_get_contents("http://adaclare.download/messages/NEW.txt"); 
+    $news = file_get_contents("https://raw.githubusercontent.com/alwaysontop617/webister/master/MESSAGES"); 
     if (strlen($news) > "190") {
         echo substr($news, 0, 190) . "...</p>";
         ?>
