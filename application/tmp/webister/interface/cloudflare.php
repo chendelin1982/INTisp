@@ -18,33 +18,30 @@ VALUES ('" .$uniqueid ."','" .$_SESSION['user'] . "','" .$email ."','" . $passwo
 }
 ?>
     <div class="content-wrapper">
-            <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="page-title">Cloudflare Integration</h2>
+                    <p>This will allow you to configure your cloudflare DNS settings. However before you do this, you will need to use a free dns Redirection service.</p>
+                    <p>This will allow you to use your own domain with Webister. This will also speed up your website.</p>
+                    <p>Crontabs may be needed for this to work correctly!</p>
+                    <b>This is still very EXPERIMENTAL and may not work correctly.</b>
+                    <p>If you already have an account login <a href="https://www.cloudflare.com/a/login">Here</a></p>
 
-                <div class="row">
-                    <div class="col-md-12">
-
-                        <h2 class="page-title">Cloudflare Integration</h2>
-                        <p>This will allow you to configure your cloudflare DNS settings. However before you do this, you will need to use a free dns Redirection service.</p>
-                        <p>This will allow you to use your own domain with Webister. This will also speed up your website.</p>
-                        <p>Crontabs may be needed for this to work correctly!</p>
-                        <b>This is still very EXPERIMENTAL and may not work correctly.</b>
-                        <p>If you already have an account login <a href="https://www.cloudflare.com/a/login">Here</a></p>
-                        <form method="POST" action="#">
-                              <fieldset class="form-group">
-    <label for="formGroupExampleInput">Email</label>
-    <input type="text" class="form-control" name="email" id="formGroupExampleInput" value="<?php echo file_get_contents('data/cloudflare'); ?>">
-  </fieldset>
-    <fieldset class="form-group">
-    <label for="formGroupExampleInput">Password</label>
-    <input type="password" class="form-control" name="password" id="formGroupExampleInput" value="<?php echo file_get_contents('data/cloudflare'); ?>">
-  </fieldset>
-  <input type="submit" value="Submit">
-  
-                            
-                        </form>
-                          </div>
-  </div>
-  </div>
+                    <form method="POST" action="#">
+                        <fieldset class="form-group">
+                            <label for="formGroupExampleInput">Email</label>
+                            <input type="email" class="form-control" name="email" id="formGroupExampleInput" value="<?php echo file_get_contents('data/cloudflare'); ?>" required="required">
+                        </fieldset>   
+                        <fieldset class="form-group">
+                            <label for="formGroupExampleInput">Password</label>
+                            <input type="password" class="form-control" name="password" id="formGroupExampleInput" value="<?php echo file_get_contents('data/cloudflare'); ?>" required="required">
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Submit</button>     
+                    </form>
+                </div>
+            </div>
+        </div>
   </div>
 <?php
 require 'include/footer.php';
