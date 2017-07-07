@@ -162,7 +162,7 @@ onlyadmin();
                 <form method="POST" action="?yes">
   <fieldset class="form-group">
     <label for="formGroupExampleInput">Username</label>
-    <input type="text" class="form-control" name="username" id="formGroupExampleInput" placeholder="">
+    <input type="text" class="form-control" name="username" id="formGroupExampleInput" placeholder="" required="required">
   </fieldset>
     <fieldset class="form-group">
     <label for="formGroupExampleInput">Disk Space in MB</label>
