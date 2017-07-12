@@ -69,21 +69,19 @@ $result = mysqli_query($con, $sql);
             ?>
          
 <?php } ?>
-                    <meta charset="UTF-8">
-                    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
-            <title>Webister</title>
-            <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-            <link rel="icon" href="https://www.kalzediahosting.com/assets/kh.png">
-          <link rel="stylesheet" type="text/css" href="style/tour.css">
-          
-            <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">	
+	<title>Webister</title>
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+	<link rel="icon" href="https://www.kalzediahosting.com/assets/kh.png">
+	<link rel="stylesheet" type="text/css" href="style/tour.css">
+
+	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
             <?php if (file_Get_contents("data/theme") == "default") { ?>
-            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\bootstrap.min.css">
-                 <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\admin.css">
-                 
-            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\custom.css">
-			            <link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\local.css">
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+				<link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\admin.css">
+				<link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\custom.css">
+				<link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\local.css">
             <?php } ?>
             <script src="js/jquery.min.js"></script>
             <script src="cpanel\bootpanel\js\engine.js" type="text/javascript"></script>
@@ -211,11 +209,9 @@ $result = mysqli_query($con, $sql);
              <form class="form-horizontal" role="form">
                   <div class="form-group">
                   	<input type="hidden" name="username" value="<?php echo $_SESSION['user'] ?>">
-                    <label  class="col-sm-2 control-label"
-                              for="inputEmail3">Password</label>
+                    <label  class="col-sm-2 control-label" for="inputEmail3">Password</label>
                     <div class="col-sm-10">
-                        <input type="password" name="password" class="form-control" 
-                        id="inputEmail3" placeholder="password"/>
+                        <input type="password" name="password" class="form-control" id="inputEmail3" placeholder="password">
                     </div>
                   </div>
                   <div class="form-group">
