@@ -1,14 +1,11 @@
 <?php
-
-/*
+/**
  * Adaclare Technologies
  *
  * Webister Hosting Software
- *
+ * Install
  *
  */
-
-
 error_reporting(0);
 $DBServer = 'localhost';
 $DBUser = 'root';
@@ -22,12 +19,19 @@ if ($conn->connect_error) {
     trigger_error('Database connection failed: '.$conn->connect_error, E_USER_ERROR);
 }
 
- $sql = 'CREATE TABLE Settings (
+//Load migrations from .sql files
+$path_migrations = dirname(__FILE__).DIRECTORY_SEPARATOR.'migrations';
+foreach(glob($path_migrations.DIRECTORY_SEPARATOR."*.sql") as $script) {
+    $sql = file_get_contents($path_migrations.DIRECTORY_SEPARATOR.$script);
+    $conn->query($sql);
+}
+/*
+$sql = 'CREATE TABLE Settings (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 code VARCHAR(1000),
 value VARCHAR(1000)
 )';
-$conn->query($sql);
+
 
  $sql = 'CREATE TABLE Users (
 id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
@@ -57,33 +61,31 @@ email TEXT,
 password TEXT
 )';
 $conn->query($sql);
+*/
+$salt = '';
 
-$sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('1', 'admin', '".sha1('admin')."', '', '', '80')";
+$sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('1', 'admin', '".sha1('admin'.$salt)."', '', '', '80')";
 $conn->query($sql);
 $sql = "INSERT INTO Mail (id, subject, message) VALUES ('1','Welcome To Webister','<b>We are glad that you decided to choose Webister.</b> <p>We hope you enjoy our awesome control panel. You will get messages/emails once you place your email address in the settings.</p><p>
 If you feel that there are some issues or you need fix your Webister, please remember to try updating it first. You can update this in our main control panel.</p>')";
 $conn->query($sql);
 $sql = "INSERT INTO Settings (id, code, value) VALUES ('1', 'title', 'My Web Host')";
 $conn->query($sql);
-unlink('/var/webister/interface/config.php');
-file_put_contents('/var/webister/interface/config.php', '<?php
+//unlink('/var/webister/interface/config.php');
 
-$'.'host'." = 'localhost';
+$config_path = dirname(__FILE__).DIRECTORY_SEPARATOR.'interface';
+file_put_contents($config_path.DIRECTORY_SEPARATOR.'config.php', '<?php
+
+$'.'host'." = '127.0.0.1';
 $".'user'."   = 'root';
 $".'pass'."   = '".$argv[1]."';
 $".'data'."   = 'webister';
 
-
 ");
-
-
-
 
 
 $databasename = $_POST["databasename"];
 $dbpass = $_POST["dbpass"];
-
-
 
 // store connection info...
 
@@ -117,7 +119,7 @@ $sql="grant all privileges on admin.* to admin@localhost";
 mysqli_query($connection,$sql);
 
 
-#Depreciated
+#Deprecated
 #mysql_connect('localhost', 'root', $argv[1]);
 #mysql_query("CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';");
 #mysql_query('CREATE DATABASE admin');
