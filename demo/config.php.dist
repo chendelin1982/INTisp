@@ -1,0 +1,9 @@
+<?php
+  /**
+   * Webister config file
+   */
+  $host = '127.0.0.1'; 
+  $user   = 'admin';
+  $pass   = 'test';
+  $database = 'webister';
+  $port = 3306;
