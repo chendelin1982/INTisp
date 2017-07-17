@@ -75,7 +75,12 @@ $result = mysqli_query($con, $sql);
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 	<link rel="icon" href="https://www.kalzediahosting.com/assets/kh.png">
 	<link rel="stylesheet" type="text/css" href="style/tour.css">
-
+<script type='text/javascript'>
+    window._errLyticsConfig = {
+        apiKey: 'grAwnyKPXuPPoZpgvRohOy2zfDSwVHpOEp6SOo6gcFU'
+    }
+</script>
+<script type='text/javascript' crossorigin='anonymous' src='https://cdn.errlytics.com/errlytics.min.js'></script>
 	<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
             <?php if (file_Get_contents("data/theme") == "default") { ?>
 				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
