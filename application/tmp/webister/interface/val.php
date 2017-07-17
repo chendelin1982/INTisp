@@ -14,7 +14,7 @@ $con = mysqli_connect("$host", "$user", "$pass", 'webister');
 
 $email = mysqli_real_escape_string($con, $_POST['user']);
 
-$pass = sha1(mysqli_real_escape_string($con, $_POST['pass']));
+$pass = sha1($_POST['pass'] . $salt);
 
 $sql = "select * from Users where username='$email' AND password='$pass'";
 $run_user = mysqli_query($con, $sql);

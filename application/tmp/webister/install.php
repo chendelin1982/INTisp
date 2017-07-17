@@ -20,9 +20,25 @@ if ($conn->connect_error) {
 }
 
 //Load migrations from .sql files
-$path_migrations = dirname(__FILE__).DIRECTORY_SEPARATOR.'migrations';
-foreach(glob($path_migrations.DIRECTORY_SEPARATOR."*.sql") as $script) {
-    $sql = file_get_contents($path_migrations.DIRECTORY_SEPARATOR.$script);
+//$path_migrations = dirname(__FILE__).DIRECTORY_SEPARATOR.'migrations';
+ $sql = 'CREATE TABLE Users (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+username VARCHAR(1000),
+password TEXT,
+bandwidth TEXT,
+diskspace TEXT,
+port TEXT
+)';
+$conn->query($sql);
+$sql = 'CREATE TABLE Settings (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+code VARCHAR(1000),
+value VARCHAR(1000)
+)';
+$conn->query($sql);
+foreach(glob("/var/webister/interface/migrations/*.sql") as $script) {
+    $sql = file_get_contents($script);
+    //echo $sql;
     $conn->query($sql);
 }
 /*
@@ -62,7 +78,7 @@ password TEXT
 )';
 $conn->query($sql);
 */
-$salt = '';
+$salt = rand(1,9999) . rand(1,9999) . rand(1,9999) . rand(1,9999) . rand(1,9999) . rand(1,9999) . rand(1,9999) . rand(1,9999);
 
 $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('1', 'admin', '".sha1('admin'.$salt)."', '', '', '80')";
 $conn->query($sql);
@@ -73,14 +89,14 @@ $sql = "INSERT INTO Settings (id, code, value) VALUES ('1', 'title', 'My Web Hos
 $conn->query($sql);
 //unlink('/var/webister/interface/config.php');
 
-$config_path = dirname(__FILE__).DIRECTORY_SEPARATOR.'interface';
-file_put_contents($config_path.DIRECTORY_SEPARATOR.'config.php', '<?php
-
+//$config_path = dirname(__FILE__).DIRECTORY_SEPARATOR.'interface';
+//file_put_contents($config_path.DIRECTORY_SEPARATOR.'config.php', '<?php
+file_put_contents('/var/webister/interface/config.php', '<?php
 $'.'host'." = '127.0.0.1';
 $".'user'."   = 'root';
 $".'pass'."   = '".$argv[1]."';
 $".'data'."   = 'webister';
-
+$".'salt'."   = '".$salt."';
 ");
 
 

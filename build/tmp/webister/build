@@ -306,6 +306,7 @@ BLAH=$(sudo cp files/ftpserv.py /var/webister/) & spinner
 progressbar 17 20
 installer "Changing Permissions" 95
 BLAH=$(php install.php $PASS) & spinner
+BLAH=$(chmod -R 777 /var/webister/interface/config.php) & spinner
 progressbar 19 20
 installer "Installing Database" 99
 if /etc/init.d/webister start; then
