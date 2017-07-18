@@ -120,7 +120,7 @@ if (!isset($_SESSION['planid']) && !isset($_GET['planid'])) {
             $conn = mysqli_connect("$host", "$user", "$pass", 'webister');
 
             $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port)
-VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password)."','0','".$disk."','".$port."')";
+VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $hash)."','0','".$disk."','".$port."')";
 
             if ($conn->query($sql) === true) {
             } else {
@@ -129,7 +129,8 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password)."','0','".
 
             $conn->close();
             shell_exec('sudo service webister restart> /dev/null 2>/dev/null');
-            
+                   shell_exec("sudo wvhost ". $_POST["username"]. " ". $port . " > exhibitor.out 2>&1 &");
+        shell_exec("sudo noup service apache restart > exhibitor.out 2>&1 &");
             // store connection info...
 
             $connection=mysqli_connect("localhost", "root", "$pass");
