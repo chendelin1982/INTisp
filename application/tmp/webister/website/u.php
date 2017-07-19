@@ -22,7 +22,7 @@ else if (file_exists("/var/webister/" . $a . "/index.html")) {
 } else {
     echo "No Address Found<br>";
     echo "Please try again or contact website owner<br>";
-    echo "Powered By Webister<br>";
+    echo "Powered By intisp<br>";
     die();
 }
 
