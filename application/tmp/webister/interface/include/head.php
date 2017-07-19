@@ -71,7 +71,7 @@ $result = mysqli_query($con, $sql);
 <?php } ?>
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">	
-	<title>Webister</title>
+	<title>IntISP</title>
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 	<link rel="icon" href="https://www.kalzediahosting.com/assets/kh.png">
 	<link rel="stylesheet" type="text/css" href="style/tour.css">
@@ -126,7 +126,7 @@ $result = mysqli_query($con, $sql);
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      	<a href="index.php?page=cp" class="navbar-brand">Webister on <b><?php
+      	<a href="index.php?page=cp" class="navbar-brand">IntISP on <b><?php
 include 'config.php';
     $mysqli = new mysqli();
     $con = mysqli_connect("$host", "$user", "$pass", "$data");
