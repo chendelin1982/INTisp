@@ -4,7 +4,7 @@
 
 •̫̮ – We are finally released. •̫̮ –
 
-Webister is a hosting control panel that is designed to be light and fast. It uses only PHP and HTML with a few shell. Webister only takes 5 MB of space to run.
+IntISP is a hosting control panel that is designed to be light and fast. It uses only PHP and HTML with a few shell. IntISP only takes 5 MB of space to run.
 
  PHP 49.2%	 JavaScript 33.4%	 CSS 16.0%	 Other 1.4%
 
@@ -26,7 +26,7 @@ Help support the project by [![Donate](https://img.shields.io/badge/Donate-PayPa
 
 ![cpanel](https://j.gifs.com/qjWAjD.gif)
 
-## About Webister
+## About IntISP
 
   - Free
   - Simple
@@ -37,7 +37,7 @@ Help support the project by [![Donate](https://img.shields.io/badge/Donate-PayPa
 
 ## Installation
 
-To install webister all you have to type is:
+To install IntISP all you have to type is:
 ```sh
 $ sudo make everything
 ```
@@ -47,7 +47,7 @@ $ sudo make everything
 You will need to copy the demo folder to the root of your server and follow the directions.
 
 
-## What people are saying about Webister?
+## What people are saying about IntISP/Webister?
 
 It is worth noting that Webister is a control panel for hosting fairly new so surely has much to improve and that will have in the near future new features, which is why it is recommended to be used in testing environments and then Give you the opportunity in production environments.
 
@@ -57,7 +57,7 @@ From [here](https://blog.desdelinux.net/webister-ligero-panel-control-hosting/).
 
 ## Support
 
-Thank you for deciding to choose Webister. Feel free to leave issues and make pull requests.
+Thank you for deciding to choose IntISP. Feel free to leave issues and make pull requests.
 
 ## Sponsor
 
