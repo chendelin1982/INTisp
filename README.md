@@ -1,5 +1,5 @@
 
-![cpanel](https://raw.githubusercontent.com/alwaysontop617/webister/master/screenshots/logo.png)
+![cpanel](https://github.com/INTisp/INTisp/blob/master/screenshots/intisp.png?raw=true)
 
 
 •̫̮ – We are finally released. •̫̮ –
