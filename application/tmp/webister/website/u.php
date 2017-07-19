@@ -2,13 +2,13 @@
 if (!isset($_GET["i"])) {
     echo "No Address Found<br>";
     echo "Please try again or contact website owner<br>";
-    echo "Powered By Webister<br>";
+    echo "Powered By intisp<br>";
     die();
 }
 if (!file_exists("/var/webister/interface/data/u/names/" . $_GET["i"])) {
  echo "No Address Found<br>";
     echo "Please try again or contact website owner<br>";
-    echo "Powered By Webister<br>";
+    echo "Powered By intisp<br>";
     die();
 }
 $a = file_get_contents("/var/webister/interface/data/u/names/" . $_GET["i"]);
