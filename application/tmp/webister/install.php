@@ -91,7 +91,7 @@ $conn->query($sql);
 
 //$config_path = dirname(__FILE__).DIRECTORY_SEPARATOR.'interface';
 //file_put_contents($config_path.DIRECTORY_SEPARATOR.'config.php', '<?php
-file_put_contents('/var/webister/interface/config.php', '<?php
+file_put_contents('/var/www/html/web/config.php', '<?php
 $'.'host'." = '127.0.0.1';
 $".'user'."   = 'root';
 $".'pass'."   = '".$argv[1]."';

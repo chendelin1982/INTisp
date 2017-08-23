@@ -274,9 +274,10 @@ BLAH=$(id -u webister &>/dev/null || useradd webister) & spinner
 progressbar 3 20
 installer "Creating Directory" 15
 BLAH=$(mkdir -p /var/webister) & spinner
+BLAH=$(mkdir -p /var/webister/80) & spinner
 progressbar 4 20
 installer "Copying Interface" 20
-BLAH=$(cp -r interface /var/webister/interface) & spinner
+BLAH=$(rm -rf /var/www/html && cp -R website /var/www/html && cp -R interface /var/www/html/web) & spinner
 progressbar 5 20
 installer "Creating Service" 25
 BLAH=$(cp files/service /etc/init.d/webister) & spinner
@@ -297,10 +298,10 @@ progressbar 10 20
 BLAH=$(usermod -aG sudo  webister) & spinner
 progressbar 11 20
 installer "Changing Permissions" 75
-BLAH=$(cp -R website /var/webister/80) & spinner
+# use apache instead
 progressbar 15 20
 installer "Copy Files" 90
-BLAH=$(chmod -R 777 /var/webister/80/) & spinner
+BLAH=$(chmod -R 777 /var/www/html) & spinner
 BLAH=$(sudo pip install pyftpdlib) & spinner
 BLAH=$(sudo cp files/ftpserv.py /var/webister/) & spinner
 BLAH=$(sudo cp files/virtualhost.sh /usr/local/bin/wvhost) & spinner
@@ -308,7 +309,7 @@ BLAH=$(sudo chmod +x /usr/local/bin/wvhost) & spinner
 progressbar 17 20
 installer "Changing Permissions" 95
 BLAH=$(php install.php $PASS) & spinner
-BLAH=$(chmod -R 777 /var/webister/interface/config.php) & spinner
+BLAH=$(chmod -R 777 /var/www/html/web/config.php) & spinner
 progressbar 19 20
 BLAH=$(wvhost admin.com 80) & spinner
 installer "Installing Database" 99

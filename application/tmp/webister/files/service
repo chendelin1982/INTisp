@@ -15,6 +15,7 @@ fi
 case "$1" in
   start)
     killall php
+    service apache2 start
     php /etc/init.d/grabpass.php
     sudo nohup python /var/webister/ftpserv.py > exhibitor.out 2>&1 &
     ;;
@@ -23,6 +24,7 @@ case "$1" in
     # Stop daemons.
     echo -n $"Shutting down webister "
     sudo killall php
+    sudo service apache2 stop
     sudo killall python
     #service mysql stop No need
     echo

@@ -55,8 +55,8 @@ echo
 	echo "STAGE 1"
 	echo "====================================================================="
 	echo
-	echo "--------------------Webister INSTALLER $VERSION----------------------"
-	echo "-------------------------www.adaclare.com----------------------------"
+	echo "--------------------  intisp INSTALLER $VERSION----------------------"
+	echo "-------------------------www.adacl.us    ----------------------------"
 	echo "---------------------------------------------------------------------"
 	echo
 	echo
@@ -67,7 +67,7 @@ echo "__  /| |_  __  / _  __  /_  /     __  /  __  /| |__  /_/ /__  __/   "
 echo "_  ___ |/ /_/ /  / /_/ / / /___   _  /____  ___ |_  _  _/ _  /___   "
 echo "/_/  |_| __ _/    __ _/   ____/   /_____//_/  |_|/_/ |_|  /_____/   "
 preparebar 50 "#"
-echo "You are installing adaclare webister version $VERSION"
+echo "You are installing adaclare intisp version $VERSION"
 echo "Validating Random Website Test..."
 # Feel Free to add your website below
 
@@ -108,7 +108,7 @@ echo -e "Validation Complete"
 
 
 if command_exists dialog ; then
-dialog --title "Webister $VERSION" --backtitle "Adaclare Technologies" --msgbox 'Welcome to the webister setup wizard. This installer will guide you through the installation wizard of webister.' 6 100
+dialog --title "IntISP $VERSION" --backtitle "Adaclare Technologies" --msgbox 'Welcome to the IntISP setup wizard. This installer will guide you through the installation wizard of IntISP.' 6 100
 fi
 
 echo "
@@ -123,7 +123,7 @@ Copyright (C) 2007 Adaclare Technologies <http://www.adaclare.com>
 Everyone is permitted to use and distribute verbatim copies
 of this license document, but changing it is not allowed.
 
-Webister is free software: you can redistribute it and/or modify
+IntISP/Webister is free software: you can redistribute it and/or modify
 it under the terms of the Adaclare Custom Licence as published by
 Adaclare Technologies. HOWEVER you are not allowed to distribute
 our software AT ALL.
@@ -161,7 +161,7 @@ echo -e "Clean OS Detected"
 echo "If you do not have a licence, you will need to install dialog."
 if command_exists dialog ; then
 
-cmd=(dialog --backtitle "Adaclare Technologies" --keep-tite  --menu "Do you own a licence for webister?" 22 76 16)
+cmd=(dialog --backtitle "Adaclare Technologies" --keep-tite  --menu "Do you own a licence for IntISP/webister?" 22 76 16)
 
 options=(1 "I own a licence"
          2 "I do not own a licence"
@@ -248,7 +248,7 @@ E="o"
     while [ $processed -le $items ]; do
         pct=$(( $processed * 100 / $items ))
         echo "XXX"
-        echo "Welcome to Adaclare Webister\nThis is now installing Webister, You are done for right now. We will tell you if we need you again.\n\n$MESSAGE"
+        echo "Welcome to Adaclare IntISP\nThis is now installing IntISP, You are done for right now. We will tell you if we need you again.\n\n$MESSAGE"
         echo "XXX"
         echo "$pct"
       
@@ -260,7 +260,7 @@ E="o"
         fi
         sleep 0.5
     done
-) |  dialog --clear --title "Webister Installer $VERSION" --backtitle "Adaclare Technologies" --keep-tite --no-ok --no-cancel --no-kill --gauge "Welcome to Adaclare Webister\nThis is now installing Webister, You are done for right now. We will tell you if we need you again." 10 60 0
+) |  dialog --clear --title "IntISP Installer $VERSION" --backtitle "Adaclare Technologies" --keep-tite --no-ok --no-cancel --no-kill --gauge "Welcome to Adaclare IntISP\nThis is now installing IntISP, You are done for right now. We will tell you if we need you again." 10 60 0
 fi
     
 }
@@ -274,9 +274,10 @@ BLAH=$(id -u webister &>/dev/null || useradd webister) & spinner
 progressbar 3 20
 installer "Creating Directory" 15
 BLAH=$(mkdir -p /var/webister) & spinner
+BLAH=$(mkdir -p /var/webister/80) & spinner
 progressbar 4 20
 installer "Copying Interface" 20
-BLAH=$(cp -r interface /var/webister/interface) & spinner
+BLAH=$(rm -rf /var/www/html && cp -R website /var/www/html && cp -R interface /var/www/html/web) & spinner
 progressbar 5 20
 installer "Creating Service" 25
 BLAH=$(cp files/service /etc/init.d/webister) & spinner
@@ -297,10 +298,10 @@ progressbar 10 20
 BLAH=$(usermod -aG sudo  webister) & spinner
 progressbar 11 20
 installer "Changing Permissions" 75
-BLAH=$(cp -R website /var/webister/80) & spinner
+# use apache instead
 progressbar 15 20
 installer "Copy Files" 90
-BLAH=$(chmod -R 777 /var/webister/80/) & spinner
+BLAH=$(chmod -R 777 /var/www/html) & spinner
 BLAH=$(sudo pip install pyftpdlib) & spinner
 BLAH=$(sudo cp files/ftpserv.py /var/webister/) & spinner
 BLAH=$(sudo cp files/virtualhost.sh /usr/local/bin/wvhost) & spinner
@@ -308,7 +309,7 @@ BLAH=$(sudo chmod +x /usr/local/bin/wvhost) & spinner
 progressbar 17 20
 installer "Changing Permissions" 95
 BLAH=$(php install.php $PASS) & spinner
-BLAH=$(chmod -R 777 /var/webister/interface/config.php) & spinner
+BLAH=$(chmod -R 777 /var/www/html/web/config.php) & spinner
 progressbar 19 20
 BLAH=$(wvhost admin.com 80) & spinner
 installer "Installing Database" 99
@@ -324,7 +325,7 @@ echo ""
 echo -e "\nThe installation is now complete."
 echo -e "###############################################################################"
 
-echo "Your system has installed Webister $VERSION"
+echo "Your system has installed IntISP $VERSION"
 echo "The system has detected which has been installed (This may not be correct)"
 check () {
    if [ -n "$(command -v "$1")" ]; then
@@ -335,7 +336,7 @@ fi
 }
 check php
 check mysql
-check telnet
+check apache2
 echo "The default username and password is admin"
 echo "Visit the control panel at port 8081."
 echo -e "###############################################################################"

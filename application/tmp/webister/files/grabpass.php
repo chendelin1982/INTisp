@@ -9,8 +9,8 @@
  */
 
  shell_exec("sudo service apache2 stop");
-shell_exec("cd /var/webister/interface && sudo nohup php -c /var/webister/php.ini -S 0.0.0.0:8081 > exhibitor.out 2>&1 &");
-include '/var/webister/interface/config.php';
+//shell_exec("cd /var/webister/interface && sudo nohup php -c /var/webister/php.ini -S 0.0.0.0:8081 > exhibitor.out 2>&1 &");
+include '/var/www/html/web/config.php';
  $mysqli = new mysqli();
     $con = mysqli_connect("$host", "$user", "$pass", "$data"); 
     $sql = "SELECT * \n"
