@@ -1,23 +1,20 @@
+# Build Webister using make.sh file
+# Build by Adaclare Technologies
+# Install V2 Release
 build:
-	eval add-apt-repository ppa:ondrej/php
-	eval echo "Please update apt else install will fail"
-	eval sh licence.sh
-	eval mkdir build
-	eval mkdir build/tmp
-	eval mkdir build/tmp/webister
-	eval cp application/tmp/webister/interface.zip build/tmp/webister/
-	eval cp application/tmp/webister/build build/tmp/webister/
-	eval mkdir build/DEBIAN
-	eval cp application/DEBIAN/* build/DEBIAN/
-	eval dpkg-deb --build build
-clean:
-	eval rm -rf /var/www/html insproc.x.c build application.deb build.deb exhibitor.out test.py
-install:
-	rm -rf /var/webister
-	rm -rf /tmp/webister
-	dpkg -i build.deb
-everything:
-	eval make clean
-	eval make build
-	eval make install
-	eval apt-get -f install
+	echo "Preparing Work Area"
+	mkdir build
+	cp -r webister/* build
+	echo "Work Area Copyed"
+requirements:
+	touch requirements
+	sudo add-apt-repository ppa:ondrej/php
+	sudo apt-get update
+	sudo apt-get install php7.1 php7.1-mysql mysql-server php7.1-curl python python-pip curl
+	sudo service mysql start
+	sudo mysql_secure_installation
+install: build requirements
+	echo "Install using make.sh"
+	cd build && sh make.sh
+clean: build
+	rm -rf build

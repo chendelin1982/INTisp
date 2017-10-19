@@ -1,1 +1,2 @@
-sudo make everything
+sudo make clean
+sudo make install
