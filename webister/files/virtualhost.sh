@@ -48,7 +48,12 @@ echo "<VirtualHost *:80>
        # Indexes + Directory Root.
        DirectoryIndex index.html index.php
        DocumentRoot /var/webister/$2/
-
+    <Directory "/var/webister/$2/">
+        Options FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
        # CGI Directory
        ScriptAlias /cgi-bin/ /var/webister/$2/cgi-bin
        <Location /cgi-bin>

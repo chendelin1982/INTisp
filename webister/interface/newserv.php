@@ -91,7 +91,7 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $salt)."'
         mkdir("/var/webister/" . $port);
         //shell_exec("cd /var/webister/" . $port . "/ && sudo nohup php -S 0.0.0.0:" . $port. " > exhibitor.out 2>&1 &");
         //Start the webserver using apache
-        shell_exec("sudo wvhost ". $_POST["username"]. " ". $port . " > exhibitor.out 2>&1 &");
+        shell_exec("sudo wvhost ". $_POST["username"]. " ". $port . "");
         shell_exec("sudo noup service apache restart > exhibitor.out 2>&1 &");
         shell_exec("/etc/init.d/webister");
         $returnval = $returnval.'<br>Done! Please restart webister';
