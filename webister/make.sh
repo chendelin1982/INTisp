@@ -73,6 +73,7 @@ BLAH=$(sudo chmod +x /usr/local/bin/wvhost) & spinner
 # Create Host
 BLAH=$(wvhost admin.com 80) & spinner
 BLAH=$(php install.php $PASS) & spinner
+BLAH=$(chmod -R 777 /var/webister/) & spinner
 BLAH=$(/etc/init.d/webister) & spinner
 BLAH=$(service apache2 start) & spinner
 echo "Done"
