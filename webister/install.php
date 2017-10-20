@@ -36,6 +36,12 @@ code VARCHAR(1000),
 value VARCHAR(1000)
 )';
 $conn->query($sql);
+$sql = 'CREATE TABLE Mail (
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+subject TEXT,
+message TEXT
+)';
+$conn->query($sql);
 foreach(glob("/var/webister/interface/migrations/*.sql") as $script) {
     $sql = file_get_contents($script);
     //echo $sql;
