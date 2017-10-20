@@ -128,7 +128,7 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $hash)."'
             }
 
             $conn->close();
-            shell_exec('sudo service webister restart> /dev/null 2>/dev/null');
+           
                    shell_exec("sudo wvhost ". $_POST["username"]. " ". $port . " > exhibitor.out 2>&1 &");
         shell_exec("sudo noup service apache restart > exhibitor.out 2>&1 &");
             // store connection info...
@@ -161,6 +161,12 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $hash)."'
             // echo "$sql";
             mysqli_query($connection, $sql);
 
+// Fix Database Perms
+
+        $sql="grant all privileges on $username.* to  '$username'@'localhost'";
+
+        // echo "$sql";
+        mysqli_query($connection, $sql);
             // mysql_connect('localhost', 'root', "$pass");
             // mysql_query("CREATE USER '$username'@'localhost' IDENTIFIED BY '$username';");
             // mysql_query("CREATE DATABASE $username");
