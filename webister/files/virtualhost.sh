@@ -42,7 +42,7 @@ if [ -n "$2" ]; then
 alias="ServerAlias $1"
 fi
 echo "
-<VirtualHost $1:80>
+<VirtualHost *:80>
        ServerAdmin admin@$1
        ServerName  testserv.adaclare.com
 ServerAlias $1
