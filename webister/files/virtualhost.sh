@@ -39,29 +39,28 @@
         chmod -R 777 /var/webister/$2
 	fi
 if [ -n "$2" ]; then
-alias="ServerAlias $2"
+alias="ServerAlias $1"
 fi
-echo "<VirtualHost *:80>
+echo "
+<VirtualHost $1:80>
        ServerAdmin admin@$1
-       ServerName  $1
-       $alias
-       # Indexes + Directory Root.
+       ServerName  testserv.adaclare.com
+ServerAlias $1
+            # Indexes + Directory Root.
        DirectoryIndex index.html index.php
-       DocumentRoot /var/webister/$2/
-    <Directory "/var/webister/$2/">
-        Options FollowSymLinks
-        AllowOverride All
-        Order allow,deny
-        Allow from all
-    </Directory>
-       # CGI Directory
-       ScriptAlias /cgi-bin/ /var/webister/$2/cgi-bin
-       <Location /cgi-bin>
-               Options +ExecCGI
-       </Location>
+       DocumentRoot /var/webister/$2
+   <Directory "/var/webister/$2">
+        # AllowOverride All      # Deprecated
+        # Order Allow,Deny       # Deprecated
+        # Allow from all         # Deprecated
 
-</VirtualHost>" > /etc/apache2/sites-available/$1.conf
+        # --New way of doing it
+        Require all granted
+    </Directory>
+
+</VirtualHost>
+" > /etc/apache2/sites-available/$1.conf
 a2ensite $1 >/dev/null 2>&1 &
-/etc/init.d/apache2 reload >/dev/null 2>&1 &
+/etc/init.d/apache2 restart >/dev/null 2>&1 &
 fi
 echo " == Added $1 succesfully! =="

@@ -15,6 +15,6 @@ requirements:
 	sudo mysql_secure_installation
 install: build requirements
 	echo "Install using make.sh"
-	cd build && sh make.sh
+	cd build && bash make.sh
 clean: build
 	rm -rf build
