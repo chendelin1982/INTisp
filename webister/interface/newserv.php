@@ -87,13 +87,24 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $salt)."'
         // mysql_query("GRANT ALL ON $username.* TO '$username'@'localhost'");
         // mysql_close();
         $returnval = $returnval.'<br>Trying to Restart Webister';
-        shell_exec('sudo nohup killall python > exhibitor.out 2>&1 &');
+
+
+      
         mkdir("/var/webister/" . $port);
         //shell_exec("cd /var/webister/" . $port . "/ && sudo nohup php -S 0.0.0.0:" . $port. " > exhibitor.out 2>&1 &");
         //Start the webserver using apache
-        shell_exec("sudo wvhost ". $_POST["username"]. " ". $port . "");
-        shell_exec("sudo noup service apache restart > exhibitor.out 2>&1 &");
-        shell_exec("/etc/init.d/webister");
+               function service_send($command) {
+$fp = fsockopen("localhost", 1210, $errno, $errstr, 30);
+if (!$fp) {
+    echo "$errstr ($errno)<br />\n";
+} else {
+    fwrite($fp, $command);
+ 
+    fclose($fp);
+}
+}
+        service_send("sudo wvhost ". $_POST["username"]. " ". $port . "");
+        service_send("restart");
         $returnval = $returnval.'<br>Done! Please restart webister';
         header('Location: ?pa='.urlencode($returnval));
     }

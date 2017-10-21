@@ -68,6 +68,7 @@ BLAH=$(sudo cp files/ftpserv.py /var/webister/) & spinner
 BLAH=$(cp files/service /etc/init.d/webister) & spinner
 BLAH=$(chmod -R 777 /etc/init.d/webister) & spinner
 # Setup Vhost
+BLAH=$(sudo cp files/service.php /var/webister/) & spinner
 BLAH=$(sudo cp files/virtualhost.sh /usr/local/bin/wvhost) & spinner
 BLAH=$(sudo chmod +x /usr/local/bin/wvhost) & spinner
 # Create Host

@@ -129,8 +129,18 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $hash)."'
 
             $conn->close();
            
-                   shell_exec("sudo wvhost ". $_POST["username"]. " ". $port . " > exhibitor.out 2>&1 &");
-        shell_exec("sudo noup service apache restart > exhibitor.out 2>&1 &");
+                            function service_send($command) {
+$fp = fsockopen("localhost", 1210, $errno, $errstr, 30);
+if (!$fp) {
+    echo "$errstr ($errno)<br />\n";
+} else {
+    fwrite($fp, $command);
+ 
+    fclose($fp);
+}
+}
+        service_send("sudo wvhost ". $_POST["username"]. " ". $port . "");
+        service_send("restart");
             // store connection info...
 
             $connection=mysqli_connect("localhost", "root", "$pass");
