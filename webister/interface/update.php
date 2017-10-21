@@ -28,11 +28,14 @@ if ($getVersions != '')
                 echo '<p>Update Downloaded And Saved</p>';
             } else echo '<p>Update already downloaded.</p>';   
              if ($_GET['doUpdate'] == true) {
-                 echo "Opening " . 'data/wb-'.$getVersions.'.zip...<pre>';
+                 echo "Opening " . 'data/wb-'.$getVersions.'.zip...<br><pre>';
             echo shell_exec('unzip -o /var/www/html/interface/data/wb-'.$getVersions.'.zip -d /var/www/html/interface/');
                echo "</pre>";
                 $updated = TRUE;
+                
                 file_put_contents("data/version",$getVersions);
+                 include "include/mail.php";
+    sendemailuser("Webister Update to " . $getVersions, "Webister is now updated to the latest version, " . $getVersions . ".");
                  echo '<p class="success">&raquo; Webister Updated to v'.$getVersions.'</p>';
              } else {
                   echo '<p>Update ready. <a href="?doUpdate=true">&raquo; Install Now?</a></p>';

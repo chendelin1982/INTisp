@@ -222,7 +222,7 @@ $(document).ready(function(){
   <li class="list-group-item">  
 
                                         <a  type="button" href="FileManager.php" class="serv btn btn-default"><i class="fa fa-5x fa-file"></i><hr>Files</a>
-                                        <a  type="button" href="ftp/ftp?" class="serv btn btn-default"><i class="fa fa-5x fa-file"></i><hr>Files 2.0</a>
+                                        <a  type="button" href="ftp" class="serv btn btn-default"><i class="fa fa-5x fa-file"></i><hr>Files 2.0</a>
                                         <a    type="button" href="adminer-4.2.4.php?server=localhost" class="serv btn btn-default"><i class="fa fa-5x fa-database"></i><hr>Database</a>
                                         <a  type="button" href="wp.php" class="serv btn btn-default"><i class="fa fa-5x fa-wordpress"></i><hr>Wordpress</a>
                                         <a  type="button" href="phpinfo.php" class="serv btn btn-default"><i class="fa fa-5x fa-code"></i><hr>PHP Info</a>
