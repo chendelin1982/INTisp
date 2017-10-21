@@ -71,6 +71,7 @@ BLAH=$(chmod -R 777 /etc/init.d/webister) & spinner
 BLAH=$(sudo cp files/virtualhost.sh /usr/local/bin/wvhost) & spinner
 BLAH=$(sudo chmod +x /usr/local/bin/wvhost) & spinner
 # Create Host
+BLAH=$(echo 'apache ALL=NOPASSWD: ALL' | sudo EDITOR='tee -a' visudo) & spinner
 BLAH=$(wvhost admin.com 80) & spinner
 BLAH=$(php install.php $PASS) & spinner
 BLAH=$(chmod -R 777 /var/webister/) & spinner
