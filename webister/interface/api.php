@@ -130,7 +130,7 @@ VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $hash)."'
             $conn->close();
            
                             function service_send($command) {
-$fp = fsockopen("localhost", 1210, $errno, $errstr, 30);
+$fp = fsockopen("127.0.0.1", 1210, $errno, $errstr, 30);
 if (!$fp) {
     echo "$errstr ($errno)<br />\n";
 } else {

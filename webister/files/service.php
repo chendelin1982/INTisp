@@ -8,7 +8,7 @@
 set_time_limit (0); 
 
 // Set the ip and port we will listen on 
-$address = '0.0.0.0'; 
+$address = '127.0.0.1'; 
 $port = 1210; 
 
 // Create a TCP Stream socket 

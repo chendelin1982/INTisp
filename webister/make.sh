@@ -50,6 +50,15 @@ SOFTWARE. IF ANYTHING BREAKS I AM NOT RESPONSIBLE FOR IT.
 echo -n MySQL Password: 
 read PASS
 echo "Installing..."
+fqdn=$1
+result=`echo $fqdn | grep -P '(?=^.{1,254}$)(^(?>(?!\d+\.)[a-zA-Z0-9_\-]{1,63}\.?)+(?:[a-zA-Z]{2,})$)'`
+if [[ -z "$result" ]]
+then
+    echo "$fqdn is NOT a FQDN"
+    exit 1;
+else
+    echo "$fqdn is a FQDN"
+fi
 # Create Database
 BLAH=$(mysql -u root -p"$PASS" -e "CREATE DATABASE webister;")
 BLAH=$(service mysql start) & spinner

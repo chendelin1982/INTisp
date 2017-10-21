@@ -121,7 +121,7 @@ $(document).ready(function(){
 </script>
   <ul id="myUL" class="list-group" data-step="2" data-intro="Here you can control the power options of webister and the computer it's running on.">
   <li class="list-group-item"><a id="chide"><i class="fa fa-list" aria-hidden="true"></i></a><a id="cshow"><i class="fa fa-list" aria-hidden="true"></i></a> | Power Management</li>
-  <li class="list-group-item">            <a type="button" href="action.php?act=pwr" class="csys btn btn-default"><i class="fa  fa-5x fa-power-off"></i><hr>Stop</a>
+  <li class="list-group-item">            
                                         <a type="button" href="action.php?act=restart" class="csys btn btn-default"><i class="fa fa-5x fa-refresh"></i><hr>Restart</a>
                                         <a type="button" href="action.php?act=server" class="csys btn btn-default"><i class="fa fa-5x fa-server"></i><hr>Restart</a>
                                         <a type="button" href="action.php?act=mysql" class="csys btn btn-default"><i class="fa fa-5x fa-database"></i><hr>Restart</a></li>
