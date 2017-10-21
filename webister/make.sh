@@ -50,7 +50,7 @@ SOFTWARE. IF ANYTHING BREAKS I AM NOT RESPONSIBLE FOR IT.
 echo -n MySQL Password: 
 read PASS
 echo "Installing..."
-fqdn=$1
+fqdn=$(hostname -f)
 result=`echo $fqdn | grep -P '(?=^.{1,254}$)(^(?>(?!\d+\.)[a-zA-Z0-9_\-]{1,63}\.?)+(?:[a-zA-Z]{2,})$)'`
 if [[ -z "$result" ]]
 then
