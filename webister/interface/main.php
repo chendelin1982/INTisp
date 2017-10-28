@@ -460,7 +460,13 @@ input {
 <div class="container">
   <div class="card"></div>
   <div class="card">
-    <h1 class="title">Login</h1>
+    <h1 class="title">Login to <?php
+    if (isset($_SESSION["reseller"])) {
+      echo $_SESSION["reseller"];
+    } else {
+      echo "Webister";
+    }
+    ?></h1>
     <form action="index.php?page=val" method="post">
       <div class="input-container">
         <input type="text"  name="user"  id="Username" required="required"/>
