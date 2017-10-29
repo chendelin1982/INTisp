@@ -10,7 +10,7 @@
 
 session_start();
 require 'config.php';
-$con = mysqli_connect("$host", "$user", "$pass", 'webister');
+$con = mysqli_connect("$host", "$user", "$pass", "$data");
 
 $email = mysqli_real_escape_string($con, $_POST['user']);
 
