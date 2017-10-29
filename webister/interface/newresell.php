@@ -12,7 +12,7 @@ if (isset($_GET['yes'])) {
         include 'config.php';
         
         $conx = mysqli_connect($host, $user, $pass);
-        $sql = 'CREATE DATABASE "' . $username . '"';
+        $sql = 'CREATE DATABASE ' . $username;
         $result = mysqli_query($conx, $sql);
         $con = mysqli_connect($host, $user, $pass, $username);
         /* Create Database */
@@ -21,10 +21,7 @@ if (isset($_GET['yes'])) {
 
 $conn = new mysqli($host, $user, $pass, $username);
 
-// check connection
-if ($conn->connect_error) {
-    trigger_error('Database connection failed: '.$conn->connect_error, E_USER_ERROR);
-}
+
 
 //Load migrations from .sql files
 //$path_migrations = dirname(__FILE__).DIRECTORY_SEPARATOR.'migrations';
@@ -101,28 +98,20 @@ $conn->query($sql);
         file_put_contents("data/reseller/" . $username,"");
     
         $sql = 'SELECT * FROM Users';
-        $result = mysqli_query($con, $sql);
+        $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_row($result)) {
-            if ($username == $row[1]) {
-                die("Error Username is not Unique");
-            }
-            if ($port == $row[5]) {
-                die("Port number is not unique");
-            }
+          
+          
         }
  
         mysqli_free_result($result);
         mysqli_close($con);
     
-        $conn = mysqli_connect("$host", "$user", "$pass", 'webister');
+        
 
-        $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port)
-VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1("admin" . $salt)."','0','".$disk."','".$port."')";
-
-        if ($conn->query($sql) === true) {
-        } else {
-            die('error');
-        }
+       $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('1', 'admin', '".sha1('admin'.$salt)."', '', '', '$port')";
+$conn->query($sql);
+       
 
         $conn->close();
 
@@ -196,7 +185,7 @@ if (!$fp) {
         $returnval = $returnval.'<br>Done! Please restart webister';
         header('Location: ?pa='.urlencode($returnval));
     }
-    newserv($_POST['pstart'], $_POST['disk'], $_POST['username'], $_POST['pend']);
+    newserv($_POST['pstart'], $_POST['disk'], $_POST['username']);
        include "include/mail.php";
             sendemailuser(
                 "New User", "

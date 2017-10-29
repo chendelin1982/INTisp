@@ -1,4 +1,4 @@
-<?php session_start(); require 'include/head.php';onlyadmin(); ?>
+<?php session_start(); require 'include/head.php';onlyadmin();onlymasterreseller(); ?>
         <div class="content-wrapper">
             <div class="container-fluid">
 

@@ -31,6 +31,11 @@ if (isset($_GET['yes'])) {
         $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port)
 VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $salt)."','0','".$disk."','".$port."')";
 
+   $con = mysqli_connect("$host", "$user", "$pass", "webister");
+
+        $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port)
+VALUES ('".rand(10000, 99999)."', '".$username."', '".sha1($password . $salt)."','0','".$disk."','".$port."')";
+$con->query($sql);
         if ($conn->query($sql) === true) {
         } else {
             die('error');
