@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (isset($_GET["reseller"])) {
+    session_destroy(); //Prevents other cpanel users from switching to vm.
     if (file_exists("data/reseller/" . $_GET["reseller"])) {
         
     $_SESSION["reseller"] = $_GET["reseller"];
