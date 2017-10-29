@@ -103,7 +103,10 @@ $(document).ready(function(){
                                         
   
                                      </li>
-  </ul>  
+  </ul> 
+  <?php
+  if (ismasterreseller()) {
+  ?>
     <script>
 $(document).ready(function(){
   $("#cshow").hide();
@@ -119,6 +122,7 @@ $(document).ready(function(){
     });
 });
 </script>
+if (ismasterreseller()
   <ul id="myUL" class="list-group" data-step="2" data-intro="Here you can control the power options of webister and the computer it's running on.">
   <li class="list-group-item"><a id="chide"><i class="fa fa-list" aria-hidden="true"></i></a><a id="cshow"><i class="fa fa-list" aria-hidden="true"></i></a> | Power Management</li>
   <li class="list-group-item">            
@@ -127,7 +131,12 @@ $(document).ready(function(){
                                         <a type="button" href="action.php?act=mysql" class="csys btn btn-default"><i class="fa fa-5x fa-database"></i><hr>Restart</a></li>
   </li>
   </ul>
+   <?php
+      }
+    ?>
     <script>
+   
+  
 $(document).ready(function(){
   $("#bshow").hide();
     $("#bhide").click(function(){
@@ -147,6 +156,12 @@ $(document).ready(function(){
   <li class="list-group-item">  
 
                                         <a type="button" href="newserv.php" class="svr btn btn-default"><i class="fa fa-5x fa-plus"></i><hr>New Server</a>
+                                          <?php
+  if (ismasterreseller()) {
+  ?>
+   <a type="button" href="newresell.php" class="svr btn btn-default"><i class="fa fa-5x fa-plus"></i><hr>New Rseller</a>
+  <?php
+  } ?>
                                         <?php if (file_get_contents("data/cloudflare") != "") {
                                             ?>
                                         
