@@ -4,6 +4,7 @@ ini_set("session.cookie_lifetime","360");
 session_start();
 include 'config.php';
 function ismasterreseller() {
+    require("config.php");
     if ($data == "webister") {
         return true;
     } else {
@@ -11,6 +12,7 @@ function ismasterreseller() {
     }
 }
 function onlymasterreseller() {
+    require("config.php");
     if ($data == "webister") {
         
     } else {
