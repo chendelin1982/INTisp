@@ -108,11 +108,11 @@ $conn->query($sql);
         mysqli_close($con);
     
         
-
-       $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('1', 'admin', '".sha1('admin'.$salt)."', '', '', '$port')";
+require("config.php");
+       $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('1', 'admin', '".sha1('admin'.$salt)."', '', $disk, '$port')";
 $conn->query($sql);
-       
-
+       $sql = 'update Users set username="admin", password="'.sha1("admin" . $salt).'" where username="admin"';
+  $conn->query($sql);
         $conn->close();
 
         $returnval = $returnval.'<br>Creating Database';

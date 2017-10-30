@@ -31,7 +31,7 @@ if ($check_user > 0) {
     include 'config.php';
 
     // Create connection
-    $conn = new mysqli('localhost', 'root', "$pass", 'webister');
+    $conn = new mysqli('localhost', 'root', "$pass", "$data");
 
     $t = time();
     $sql = "INSERT INTO FailedLogin(id, ip, time)
