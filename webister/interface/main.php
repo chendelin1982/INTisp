@@ -3,8 +3,14 @@
 <head>
 	<meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-    <title>Webister</title>
+    <title>Webister</title>	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+	<link rel="icon" href="https://www.kalzediahosting.com/assets/kh.png">
+	<link rel="stylesheet" type="text/css" href="style/tour.css">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+				<link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\admin.css">
+				<link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\custom.css">
+				<link rel="stylesheet" type="text/css" href="cpanel\bootpanel\css\local.css">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <style>
 body {
@@ -65,7 +71,7 @@ body {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #ec2652;
+  background: #000000;
   width: 56px;
   height: 56px;
   border-radius: 100%;
@@ -86,7 +92,7 @@ body {
 #portfolio {
   bottom: 96px;
   right: 36px;
-  background: #ec2652;
+  background: #000000;
   width: 44px;
   height: 44px;
   -webkit-animation: buttonFadeInUp 1s ease;
@@ -192,7 +198,7 @@ body {
   z-index: 1;
   margin: 0 0 35px;
   padding: 10px 0 10px 50px;
-  color:#ec2652;
+  color:#000000;
   font-size: 32px;
   font-weight: 600;
   text-transform: uppercase;
@@ -247,7 +253,7 @@ body {
 .card .input-container .bar:before, .card .input-container .bar:after {
   content: '';
   position: absolute;
-  background: #ec2652;
+  background: #000000;
   width: 0;
   height: 2px;
   -webkit-transition: .2s ease;
@@ -268,7 +274,7 @@ body {
   cursor: pointer;
   position: relative;
   display: inline-block;
-  background: 0;
+  background-color:grey;
   width: 240px;
   padding: 20px 0;
   font-size: 24px;
@@ -292,7 +298,7 @@ body {
   top: 50%;
   left: 50%;
   display: block;
-  background: #ec2652;
+  background: #000000;
   width: 30px;
   height: 30px;
   margin: -15px 0 0 -15px;
@@ -301,10 +307,10 @@ body {
   transition: .3s ease;
 }
 .card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
-  border-color: #ec2652;
+  border-color: #000000;
 }
 .card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
-  color: #ec2652;
+  color: #000000;
 }
 .card .button-container button:active span, .card .button-container button:focus span {
   color: #ffffff;
@@ -350,7 +356,7 @@ body {
 }
 .card.alt .toggle {
   position: relative;
-  background: #ec2652;
+  background: #000000;
   width: 100px;
   height: 100px;
   border-radius: 100%;
@@ -421,7 +427,7 @@ body {
   border-color: #ffffff;
 }
 .card.alt .button-container button span {
-  color: #ec2652;
+  color: #000000;
 }
 .card.alt .button-container button:hover {
   background: rgba(255, 255, 255, 0.9);
@@ -449,6 +455,74 @@ input {
 </style>
 </head>
 <body>
+    <nav style="background-color:#<?php echo file_get_contents("data/color"); ?>;" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      	<a  class="navbar-brand">Adaclare IntISP</a> 
+      	
+    </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+               <li><a><span class="badge">build # <?php echo file_get_contents("data/version"); ?></span></a></li>
+               <li><a><span class="badge"><?php echo php_uname("s"); ?> <?php echo php_uname("r"); ?>.<?php echo php_uname("m"); ?></span></a></li>
+                 <li>
+                   <form class="navbar-form navbar-left" method="GET" action="">
+      <div class="input-group">
+        <input type="text" class="form-control" name="reseller" placeholder="Enter reseller name">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            Switch Reseller
+          </button>
+        </div>
+      </div>
+    </form>
+                 </li>
+              </ul>
+           
+          
+      <ul style="background-color:#42f4a7;color:black;" class="nav navbar-nav navbar-right">
+
+ 
+             
+      
+         </span></a></li>
+         <?php
+			  function isSSL()
+    {
+        if( !empty( $_SERVER['https'] ) )
+            return true;
+        if( !empty( $_SERVER['HTTP_X_FORWARDED_PROTO'] ) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' )
+            return true;
+        return false;
+    }
+			if (!isSSL()) {
+				?>
+				<li><A><i  style="color:white" class="fa fa-1x fa-unlock"></i></A></li>
+				<?php
+			} else {
+			?>
+				<li><A><i style="color:white" class="fa fa-1x fa-lock"></i></A></li>
+			<?php
+			}
+			?>
+     
+            </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+ <br>
+ <br>
+ <br>
+ <br>
+  
+  
 <div class="container">
 	<div class="row">
 		
@@ -469,16 +543,16 @@ input {
     ?></h1>
     <form action="index.php?page=val" method="post">
       <div class="input-container">
-        <input type="text"  name="user"  id="Username" required="required"/>
+        <input type="text"  name="user" style="border:none;  id="Username" required="required"/>
         <label for="Username">Username</label>
-        <div class="bar"></div>
+        
       </div>
       <div class="input-container">
-        <input type="password" name="pass" id="Password" required="required"/>
+        <input type="password" style="border:none;" name="pass" id="Password" required="required"/>
         <label for="Password">Password</label>
-        <div class="bar"></div>
+        
       </div>
-      <div class="button-container">
+      <div class="button-container" style="color:black;">
         <button><span>Go</span></button>
       </div>
         <?php
