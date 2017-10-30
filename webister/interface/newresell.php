@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_GET['yes'])) {
-    function newserv($port, $disk, $username)
+    function newserv($port, $disk, $username, $passx)
     {
      $username = "rslr" . $username;
         $returnval = '';
@@ -109,9 +109,9 @@ $conn->query($sql);
     
         
 require("config.php");
-       $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('1', 'admin', '".sha1('admin'.$salt)."', '', $disk, '$port')";
+       $sql = "INSERT INTO Users (id, username, password, bandwidth, diskspace, port) VALUES ('1', 'admin', '".sha1($passx.$salt)."', '', $disk, '$port')";
 $conn->query($sql);
-       $sql = 'update Users set username="admin", password="'.sha1("admin" . $salt).'" where username="admin"';
+       $sql = 'update Users set username="admin", password="'.sha1($passx . $salt).'" where username="admin"';
   $conn->query($sql);
         $conn->close();
 
@@ -185,7 +185,7 @@ if (!$fp) {
         $returnval = $returnval.'<br>Done! Please restart webister';
         header('Location: ?pa='.urlencode($returnval));
     }
-    newserv($_POST['pstart'], $_POST['disk'], $_POST['username']);
+    newserv($_POST['pstart'], $_POST['disk'], $_POST['username'], $_POST["passx"]);
        include "include/mail.php";
             sendemailuser(
                 "New User", "
@@ -221,6 +221,10 @@ onlyadmin();onlymasterreseller();
     <fieldset class="form-group">
     <label for="formGroupExampleInput">Port</label>
     <input type="text" class="form-control" name="pstart" id="formGroupExampleInput" placeholder="">
+  </fieldset>
+   <fieldset class="form-group">
+    <label for="formGroupExampleInput">Password</label>
+    <input type="text" class="form-control" name="passx" id="formGroupExampleInput" placeholder="">
   </fieldset>
 <button type="submit" class="btn btn-primary">Add User</button>
 </form>			

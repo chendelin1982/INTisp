@@ -168,8 +168,12 @@ $(document).ready(function(){
                                         <?php } ?>
                                         <a type="button" href="index.php?page=list#" class="svr btn btn-default"><i class="fa fa-5x fa-user"></i><hr>Users</a>
                                         <a type="button" href="plans.php" class="svr btn btn-default"><i class="fa fa-5x fa-columns" aria-hidden="true"></i><hr>Plans</a>
+                                                                           <?php
+  if (ismasterreseller()) {
+  ?>
                                         <a type="button" href="adminer-4.2.4.php?server=localhost&username=<?php echo urlencode($user); ?>&password=<?php echo urlencode($pass); ?>" class="svr btn btn-default"><i class="fa fa-5x fa-database" aria-hidden="true"></i><hr> All Database</a>
-
+ <?php
+  } ?>
                                          </li>
   </ul>
   <script>
@@ -190,9 +194,12 @@ $(document).ready(function(){
                                       <ul class="list-group" data-step="4" data-intro="Here is you can manage webister, these are the settings of it.">
   <li class="list-group-item"><a id="ahide"><i class="fa fa-list" aria-hidden="true"></i></a><a id="ashow"><i class="fa fa-list" aria-hidden="true"></i></a> | System</li>
   <li class="list-group-item">  
-
-                                  <a type="button" href="settings.php" class="sys btn btn-default"><i class="fa fa-5x fa-sliders"></i><hr>Settings</a>
-                                  <a type="button" href="update.php" class="sys btn btn-default"><i class="fa fa-5x fa-upload"></i><hr>Update</a>
+<?php
+  if (ismasterreseller()) {
+  ?>
+                                  <a type="button" href="settings.php" class="sys btn btn-default"><i class="fa fa-5x fa-sliders"></i><hr>Settings</a> 
+                                  <a type="button" href="update.php" class="sys btn btn-default"><i class="fa fa-5x fa-upload"></i><hr>Update</a> <?php
+  } ?>
                                   <a type="button" href="plug.php" class="sys btn btn-default"><i class="fa fa-5x fa-puzzle-piece"></i><hr>Plugins</a>
                                         <a type="button" href="terminal.php" class="sys btn btn-default"><i class="fa fa-5x fa-terminal"></i><hr>Terminal</a>
                                                                                 <a type="button" href="mail.php" class="sys btn btn-default"><i class="fa fa-5x fa-envelope-o"></i><hr>Messages</a>
