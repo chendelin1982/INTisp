@@ -6,6 +6,26 @@
 *  for use, modification and redistribution
 */
 -->
+<?php
+session_start();
+function onlymasterreseller() {
+    require("config.php");
+    if ($data == "webister") {
+        
+    } else {
+        die();
+    }
+}
+function onlyadmin () {
+     if ($_SESSION['user'] == 'admin') {
+         
+     } else {
+         die();
+     }
+}
+onlyadmin();
+onlymasterreseller();
+?>
 <!doctype html>
 <html>
 <head>
